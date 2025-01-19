@@ -1,0 +1,37 @@
+section#servers
+	.card.bg-dark-850.border.mt-5
+		.card-body.pb-1
+			.custom-title
+				.triangle-before &nbsp;
+				h4.title Servers
+				.triangle-after &nbsp;
+			.mt-2.mb-0
+				small.position-absolute.top-0.end-0.mt-2.me-3
+					span.bannerusercount
+				br
+				.row.d-flex.justify-content-around.g-2
+					.col-md-4.mb-1.mb-md-0.d-flex.justify-content-center.server-banner
+						a(href="byond://sybil.tgstation13.org:1337")
+							noscript
+								img.gamebanner(src="/gamebanner.php?server=sybil", loading="lazy")
+							span.gamebannerplaceholder(data-gamebannerserver="sybil")
+					.col-md-4.mb-1.mb-md-0.d-flex.justify-content-center.server-banner
+						a(href="byond://manuel.tgstation13.org:1447")
+							noscript
+								img.gamebanner(src="/gamebanner.php?server=sybil2", loading="lazy")
+							span.gamebannerplaceholder(data-gamebannerserver="sybil2")
+					.col-md-4.mb-1.mb-md-0.d-flex.justify-content-center.server-banner
+						a(href="byond://terry.tgstation13.org:3336")
+							noscript
+								img.gamebanner(src="/gamebanner.php?server=terry", loading="lazy")
+							span.gamebannerplaceholder(data-gamebannerserver="terry")
+				br
+				.row.d-flex.justify-content-around.g-2
+					.col-md-4.mb-1.mb-md-0.d-flex.justify-content-center.server-banner
+						a(href="byond://tgmc.tgstation13.org:5337")
+							noscript
+								img.gamebanner(src="/gamebanner.php?server=dmca", loading="lazy")
+							span.gamebannerplaceholder(data-gamebannerserver="dmca")
+				small.d-block.text-center.mt-1
+					| Green = New round lobby, Blue = Round in progress, Red =
+					| Round over or error
