@@ -63,7 +63,7 @@ in
         WorkingDirectory = builtins.fetchGit {
           url = "git@github.com:tgstation-operations/website-v2";
         };
-        ExecStart = "${pkgs.docker}/bin/docker compose up --build";
+        ExecStart = "${pkgs.docker}/bin/docker compose -f ./package/docker-compose.yml up --build";
         WantedBy = [ "multi-user.target" ];
         Environment = [
           "CLOUDFLARED_TOKEN=${cfg.cloudflared-token}"
