@@ -58,7 +58,7 @@ in
 
     systemd.services.tgstation-website = {
       description = "tgstation-website";
-      path = lib.mkPath (with pkgs; [ docker ]);
+      path = [ pkgs.docker ];
       serviceConfig = {
         User = cfg.username;
         WorkingDirectory = "${self}/package";
