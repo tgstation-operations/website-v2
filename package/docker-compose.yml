@@ -3,11 +3,3 @@ services:
     build: .
     environment:
       - API_KEY=${API_KEY}
-  cloudflared:
-    image: cloudflare/cloudflared:latest
-    command: tunnel --no-autoupdate run --token ${CLOUDFLARED_TOKEN}
-  lazy_fucking_hack:
-    image: ubuntu
-    command: sh -c "apt-get update && apt-get install -y curl; while true; do curl http://website/getserverdataasync.php?key=${API_KEY}; sleep 1; done"
-    logging:
-      driver: none

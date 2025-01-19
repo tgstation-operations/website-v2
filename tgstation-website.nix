@@ -54,6 +54,7 @@ in
     users.users."${cfg.username}" = {
       group = "${cfg.username}";
       isSystemUser = true;
+      extraGroups = [ "docker" ];
     };
 
     systemd.services.tgstation-website = {
