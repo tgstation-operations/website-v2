@@ -58,11 +58,10 @@ in
 
     systemd.services.tgstation-website = {
       description = "tgstation-website";
-      path = [ pkgs.docker ];
       serviceConfig = {
         User = cfg.username;
         WorkingDirectory = "${self}/package";
-        ExecStart = "docker compose up --build";
+        ExecStart = "${pkgs.docker}/bin/docker compose up --build";
         WantedBy = [ "multi-user.target" ];
         Environment = [
           "CLOUDFLARED_TOKEN=${cfg.cloudflared-token}"
