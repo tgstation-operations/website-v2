@@ -1,6 +1,7 @@
 <?php
-// if (php_sapi_name() != "cli")
-// 	return;
+if ($_GET["key"] != getenv("API_KEY")){
+  exit;
+}
 
 include("serverinfo.php");
 

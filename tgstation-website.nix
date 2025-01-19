@@ -38,6 +38,14 @@ in
           The token used by cloudflared
         '';
       };
+
+      api-key = lib.mkOption {
+        type = lib.types.str;
+        default = "NOTSET";
+        description = ''
+          The API key used by the server for privileged operations
+        '';
+      };
     };
   };
 
@@ -57,6 +65,7 @@ in
         WantedBy = [ "multi-user.target" ];
         Environment = [
           "CLOUDFLARED_TOKEN=${cfg.cloudflared-token}"
+          "API_KEY=${cfg.api-key}"
         ];
       };
     };
