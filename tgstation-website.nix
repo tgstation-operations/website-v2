@@ -63,8 +63,8 @@ in
         WorkingDirectory = pkgs.fetchFromGitHub {
           owner = "tgstation-operations";
           repo = "website-v2";
-          rev = "master";
-          sha256 = "sha256:GDRABmvV2e9rYKl6b25Q/ONqgHuDzAfgPjPUND1FZA8=";
+          rev = "d78a39e58fccdcca6f39c45672c9cf9cbb7da190";
+          sha256 = "sha256:KoGRVu7u8la/uac1EO62IS7Izn+WJaQ31kuey5iky/8=";
         };
         ExecStart = "${pkgs.docker}/bin/docker compose -f ./package/docker-compose.yml up --build";
         WantedBy = [ "multi-user.target" ];
