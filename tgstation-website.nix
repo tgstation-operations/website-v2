@@ -62,6 +62,7 @@ in
         User = cfg.username;
         WorkingDirectory = builtins.fetchGit {
           url = "git@github.com:tgstation-operations/website-v2";
+          ref = "main";
         };
         ExecStart = "${pkgs.docker}/bin/docker compose -f ./package/docker-compose.yml up --build";
         WantedBy = [ "multi-user.target" ];
