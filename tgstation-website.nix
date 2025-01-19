@@ -60,7 +60,9 @@ in
       description = "tgstation-website";
       serviceConfig = {
         User = cfg.username;
-        WorkingDirectory = "${self}/package";
+        WorkingDirectory = builtins.fetchGit {
+          url = "git@github.com:tgstation-operations/website-v2";
+        };
         ExecStart = "${pkgs.docker}/bin/docker compose up --build";
         WantedBy = [ "multi-user.target" ];
         Environment = [
