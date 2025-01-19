@@ -60,9 +60,11 @@ in
       description = "tgstation-website";
       serviceConfig = {
         User = cfg.username;
-        WorkingDirectory = builtins.fetchGit {
-          url = "git@github.com:tgstation-operations/website-v2";
-          ref = "main";
+        WorkingDirectory = builtins.fetchFromGitHub {
+          owner = "tgstation-operations";
+          repo = "website-v2";
+          rev = "master";
+          hash = lib.fakeSha256;
         };
         ExecStart = "${pkgs.docker}/bin/docker compose -f ./package/docker-compose.yml up --build";
         WantedBy = [ "multi-user.target" ];
