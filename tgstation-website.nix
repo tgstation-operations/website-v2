@@ -64,7 +64,7 @@ in
           owner = "tgstation-operations";
           repo = "website-v2";
           rev = "master";
-          sha256 = lib.fakeSha256;
+          sha256 = "sha256:GDRABmvV2e9rYKl6b25Q/ONqgHuDzAfgPjPUND1FZA8=";
         };
         ExecStart = "${pkgs.docker}/bin/docker compose -f ./package/docker-compose.yml up --build";
         WantedBy = [ "multi-user.target" ];
