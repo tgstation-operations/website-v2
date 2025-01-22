@@ -10,7 +10,7 @@
   ];
 
   mkDerivation = {
-    src = ./.
+    src = ./.;
   };
 
   deps = {nixpkgs, ...}: {
