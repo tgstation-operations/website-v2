@@ -383,9 +383,12 @@ if (file_exists($file)) {
 	
 	fclose($handle);
 	$cache = @json_decode($cache, true);
-	
-	if ($cache && array_key_exists($servername, $cache)) {
-		$data = $cache[$servername];
+
+	if ($cache && array_key_exists("servers", $cache)) {
+		$servers = $cache["servers"];
+		if (array_key_exists()) {
+			$data = $servers[$servername];
+		}
 	}
 }
 
