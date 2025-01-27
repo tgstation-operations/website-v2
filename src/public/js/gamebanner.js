@@ -256,7 +256,7 @@ function reloadbanners(force) {
 			$.each(refreshjobs, function (server, banner) {
 				/*console.log("filling banner "+server);
 				console.dir(banner);*/
-				totalpop += infofillbanner(banner, data[server]);
+				totalpop += infofillbanner(banner, data["servers"][server]);
 			});
 			$('.bannerusercount').text(totalpop + ' total players.');
 		});
