@@ -374,7 +374,7 @@ function makeImage($variable_value_array) {
 
 
 //load data the cron job was suppose to set
-$file = "serverinfo.json";
+$file = "/run/tgstation-website-v2/serverinfo.json";
 $data = array();
 
 if (file_exists($file)) {

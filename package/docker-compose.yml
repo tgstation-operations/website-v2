@@ -1,5 +1,0 @@
-services:
-  website:
-    build: .
-    environment:
-      - API_KEY=${API_KEY}

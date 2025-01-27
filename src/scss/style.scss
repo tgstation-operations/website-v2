@@ -8,13 +8,15 @@
 @import "variable-overrides";
 
 // 3. Include remainder of required Bootstrap stylesheets
-@import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins";
-@import "bootstrap/scss/root";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
 @import "bootstrap/scss/utilities";
 
 // 4. Include any optional Bootstrap CSS as needed
 // Layout & components
+@import "bootstrap/scss/root";
 @import "bootstrap/scss/reboot";
 @import "bootstrap/scss/type";
 @import "bootstrap/scss/images";
