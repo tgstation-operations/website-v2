@@ -36,7 +36,8 @@ function setupreloader(server, target) {
 		spinning: true
 	};
 	refreshjobs[server] = refreshjob;
-
+	banner_init(refreshjob, server);
+	setbannererrormode(refreshjob, true);
 }
 
 function displayrefreshstatus() {
@@ -110,11 +111,9 @@ function shuttleTime(shuttlemode, shuttletime) {
 }
 function popcapstring(serverdata) {
 	let string = '∞';
-	let popcap = Number(serverdata.serverdata.popcap);
+	let popcap = Number(serverdata.popcap);
 	let hpopcap = Number(serverdata.hard_popcap)
 	let epopcap = Number(serverdata.extreme_popcap);
-	if (!popcap)
-		popcap = Number(serverdata.popcap);
 	if (epopcap) {
 		if (hpopcap && hpopcap < epopcap)
 			return hpopcap + '(' + epopcap + ')';
@@ -150,7 +149,13 @@ function bannererror(banner, errormessage) {
 	return 0;
 }
 
-function infofillbanner(banner, serverdata) {
+function banner_init(banner, identifier) {
+	$('.gamebannername', banner.target).text(identifier);
+	$('.gamebannermap', banner.target).text('Loading...');
+	setbannererrormode(banner, false);
+}
+
+function infofillbanner(banner, serverdata, identifier, addr, port) {
 	if (banner.gamebannerspan) {
 		$(banner.target).replaceWith(banner.gamebannerspan);
 		banner.target = banner.gamebannerspan;
@@ -166,27 +171,9 @@ function infofillbanner(banner, serverdata) {
 		return bannererror(banner, 'Invalid Game Banner!');
 	}
 
-	$('.gamebanneraddr', banner.target).text(serverdata.serverdata.address + ':' + serverdata.serverdata.port + ' ' + (serverdata.hasOwnProperty('revision') ? serverdata.revision.substr(0, 7) : ''));
-	$('.gamebannername', banner.target).text(serverdata.serverdata.servername);
-	if (serverdata.hasOwnProperty('errorgrace') && serverdata.errorgrace) {
-		//$('.gamebannerloader', banner.target).toggle(true);
-		banner.spinning = true;
-	}
-	else if (banner.spinning == true) {
-		$('.gamebannerloader', banner.target).toggle(false);
-		banner.spinning = false;
-	}
-	if (serverdata.serverdata.hasOwnProperty('eventcolors')) {
-		if (serverdata.serverdata.eventcolors) {
-			$(banner.target).addClass('statusevent');
-		} else {
-			$(banner.target).removeClass('statusevent');
-		}
-	} else if (serverdata.hasOwnProperty('event_colors') && serverdata.event_colors) {
-		$(banner.target).addClass('statusevent');
-	} else {
-		$(banner.target).removeClass('statusevent');
-	}
+	$('.gamebanneraddr', banner.target).text(addr + ':' + port + ' ' + (serverdata.hasOwnProperty('revision') ? serverdata.revision.substr(0, 7) : ''));
+	$('.gamebannername', banner.target).text(identifier);
+
 	if (serverdata.hasOwnProperty('ERROR') || !serverdata.hasOwnProperty('players') || !serverdata.hasOwnProperty('version')) {
 		if (serverdata.restarting && serverdata.restarting < 18)
 			return bannererror(banner, 'Server Restarting' + '.'.repeat(serverdata.restarting));
@@ -243,26 +230,47 @@ function infofillbanner(banner, serverdata) {
 	return serverdata.players;
 
 }
+
+function do_reload_banners(data) {
+	let totalpop = 0;
+	let servers = data["servers"];
+	$.each(refreshjobs, function (server, banner) {
+		let found = false;
+		for (let key in servers) {
+			let identifier = servers[key].identifier;
+			if (identifier == server) {
+				let server_addr_split = key.split(':');
+				let server_addr = server_addr_split[0];
+				let server_port = server_addr_split[1];
+				totalpop += infofillbanner(banner, servers[key], identifier, server_addr, server_port);
+				found = true;
+				break;
+			}
+		}
+		if (!found)
+			bannererror(banner, 'Server not found');
+	});
+	$('.bannerusercount').text(totalpop + ' total players.');
+}
+
 refreshtime = 1000;
 function reloadbanners(force) {
 	let ourrefreshtime = refreshtime;
-	if (force || !getCookie("disablerefresh"))
-		$.get("/serverinfo.json", function (data) {
-			/*console.log("loading banners");
-			console.dir(refreshjobs);*/
-			let totalpop = 0;
-			if (data.hasOwnProperty('refreshtime'))
-				refreshtime = Math.max(Number(data.refreshtime), 750);
-			$.each(refreshjobs, function (server, banner) {
-				/*console.log("filling banner "+server);
-				console.dir(banner);*/
-				totalpop += infofillbanner(banner, data[server]);
-			});
-			$('.bannerusercount').text(totalpop + ' total players.');
-		});
+	if (force || !getCookie("disablerefresh")) {
+		let ajax_request = {
+			url: "./serverinfo.json",
+			success: do_reload_banners,
+			error: function () {
+				$.each(refreshjobs, function (server, banner) {
+					bannererror(banner, 'Failed to load data');
+				});
+			},
+			crossDomain: true,
+		};
+		$.ajax(ajax_request);
+		do_reload_banners(data);
+	} else ourrefreshtime = ourrefreshtime * 60;
 
-	else
-		ourrefreshtime = ourrefreshtime * 60;
 	if (document.hidden || !iSeeYou)
 		ourrefreshtime = ourrefreshtime * 1.5;
 	if (DevilsWorkshopLvl) {
