@@ -170,9 +170,15 @@ function infofillbanner(banner, serverdata, identifier, addr, port) {
 		$('.gamebannername', banner.target).text(banner.server);
 		return bannererror(banner, 'Invalid Game Banner!');
 	}
+	let name_map = {
+		terry: "Terry [EU]",
+		manuel: "Manuel [US-Central]",
+		sybil: "Sybil [US-Central]",
+		tgmc: "TerraGov Marine Corps [US-Central]",
+	}
 
 	$('.gamebanneraddr', banner.target).text(addr + ':' + port + ' ' + (serverdata.hasOwnProperty('revision') ? serverdata.revision.substr(0, 7) : ''));
-	$('.gamebannername', banner.target).text(identifier);
+	$('.gamebannername', banner.target).text(name_map[identifier]);
 
 	if (serverdata.hasOwnProperty('ERROR') || !serverdata.hasOwnProperty('players') || !serverdata.hasOwnProperty('version')) {
 		if (serverdata.restarting && serverdata.restarting < 18)
