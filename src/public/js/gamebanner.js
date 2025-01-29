@@ -274,7 +274,6 @@ function reloadbanners(force) {
 			crossDomain: true,
 		};
 		$.ajax(ajax_request);
-		do_reload_banners(data);
 	} else ourrefreshtime = ourrefreshtime * 60;
 
 	if (document.hidden || !iSeeYou)
