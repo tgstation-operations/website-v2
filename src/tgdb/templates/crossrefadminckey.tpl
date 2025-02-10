@@ -1,0 +1,1 @@
+<a href="?adminckey={ITEM}">{ITEM}</a>

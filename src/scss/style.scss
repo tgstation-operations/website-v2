@@ -8,15 +8,13 @@
 @import "variable-overrides";
 
 // 3. Include remainder of required Bootstrap stylesheets
-@import "bootstrap/scss/mixins";
 @import "bootstrap/scss/variables";
-@import "bootstrap/scss/variables-dark";
-@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
 @import "bootstrap/scss/utilities";
 
 // 4. Include any optional Bootstrap CSS as needed
 // Layout & components
-@import "bootstrap/scss/root";
 @import "bootstrap/scss/reboot";
 @import "bootstrap/scss/type";
 @import "bootstrap/scss/images";
@@ -27,7 +25,7 @@
 @import "bootstrap/scss/buttons";
 @import "bootstrap/scss/transitions";
 @import "bootstrap/scss/dropdown";
-@import "bootstrap/scss/button-group";
+// @import "bootstrap/scss/button-group";
 @import "bootstrap/scss/nav";
 @import "bootstrap/scss/navbar";
 @import "bootstrap/scss/card";
@@ -39,8 +37,8 @@
 // @import "bootstrap/scss/progress";
 // @import "bootstrap/scss/list-group";
 @import "bootstrap/scss/close";
-@import "bootstrap/scss/toasts";
-@import "bootstrap/scss/modal";
+// @import "bootstrap/scss/toasts";
+// @import "bootstrap/scss/modal";
 // @import "bootstrap/scss/tooltip";
 @import "bootstrap/scss/popover";
 @import "bootstrap/scss/carousel";
