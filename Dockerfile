@@ -10,7 +10,7 @@ RUN npm install && npm run build && rm -rf node_modules
 
 # Alpine PHP + Apache from https://github.com/ulsmith/alpine-apache-php7/
 FROM docker.io/alpine:edge
-MAINTAINER Paul Smith <pa.ulsmith.net>
+LABEL MAINTAINER="Paul Smith <pa.ulsmith.net>"
 
 # Add repos
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
