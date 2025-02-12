@@ -243,7 +243,7 @@ function do_reload_banners(data) {
 	$.each(refreshjobs, function (server, banner) {
 		let found = false;
 		for (let key in servers) {
-			let identifier = servers[key].identifier;
+			let identifier = servers[key].identifier.toLowerCase();
 			if (identifier == server) {
 				let server_addr_split = key.split(':');
 				let server_addr = server_addr_split[0];
