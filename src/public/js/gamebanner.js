@@ -18,7 +18,7 @@ function setupreloader(server, target) {
 		return;
 	}
 	$(target).removeAttr('src');
-	var gamebannerspan = $('<span class="gamebanner statuserror"></span>');
+	var gamebannerspan = $('<span class="gamebanner statuserror"></span>').appendTo(target);
 	gamebannerspan.append(
 		'<span class="gamebannerline gamebanneraddrline"><span class="gamebanneraddr"></span><span class="gamebannericons"><span class="gamebannericon gamebannerbunker"> <i title="This server is not accepting connections from new players (Panic Bunker)" class="fa fa-shield"></i></span><span class="gamebannericon gamebannernoenter"><i title="Spectate only, Entry into the round has been disabled." class="fa fa-glasses"></i></span><span class="gamebannericon gamebannerhub"><i title="This server is on the BYOND hub" class="fa fa-globe"></i></span></span></span>',
 		'<span class="gamebannerline gamebannername"></span>',
@@ -26,7 +26,6 @@ function setupreloader(server, target) {
 		'<span class="gamebannerline gamebannermap"></span>',
 		'<span class="gamebannerline gamebannerttl"></span>',
 		'<span class="gamebannerline gamebannererror"></span>'
-
 	);
 
 	var refreshjob = {
@@ -155,7 +154,7 @@ function banner_init(banner, identifier) {
 	setbannererrormode(banner, false);
 }
 
-function infofillbanner(banner, serverdata, identifier, addr, port) {
+function infofillbanner(banner, serverdata, identifier) {
 	if (banner.gamebannerspan) {
 		$(banner.target).replaceWith(banner.gamebannerspan);
 		banner.target = banner.gamebannerspan;
@@ -170,14 +169,21 @@ function infofillbanner(banner, serverdata, identifier, addr, port) {
 		$('.gamebannername', banner.target).text(banner.server);
 		return bannererror(banner, 'Invalid Game Banner!');
 	}
+
 	let name_map = {
 		terry: "Terry [EU]",
 		manuel: "Manuel [US-Central]",
 		sybil: "Sybil [US-Central]",
 		tgmc: "TerraGov Marine Corps [US-Central]",
 	}
+	let addr_map = {
+		terry: "terry.tgstation13.org:3336",
+		manuel: "manuel.tgstation13.org:1447",
+		sybil: "sybil.tgstation13.org:1337",
+		tgmc: "tgmc.tgstation13.org:5337",
+	}
 
-	$('.gamebanneraddr', banner.target).text(addr + ':' + port + ' ' + (serverdata.hasOwnProperty('revision') ? serverdata.revision.substr(0, 7) : ''));
+	$('.gamebanneraddr', banner.target).text(addr_map[identifier] + ' ' + (serverdata.hasOwnProperty('revision') ? serverdata.revision.substr(0, 7) : ''));
 	$('.gamebannername', banner.target).text(name_map[identifier]);
 
 	if (serverdata.hasOwnProperty('ERROR') || !serverdata.hasOwnProperty('players') || !serverdata.hasOwnProperty('version')) {
@@ -237,40 +243,54 @@ function infofillbanner(banner, serverdata, identifier, addr, port) {
 
 }
 
+known_failed_servers = {};
 function do_reload_banners(data) {
 	let totalpop = 0;
 	let servers = data["servers"];
-	$.each(refreshjobs, function (server, banner) {
-		let found = false;
-		for (let key in servers) {
-			let identifier = servers[key].identifier;
-			if (identifier == server) {
-				let server_addr_split = key.split(':');
-				let server_addr = server_addr_split[0];
-				let server_port = server_addr_split[1];
-				totalpop += infofillbanner(banner, servers[key], identifier, server_addr, server_port);
-				found = true;
-				break;
-			}
+
+	let failed = {};
+	for (let job in refreshjobs) {
+		failed[job] = true;
+	}
+
+	for (let _server in servers) {
+		let server = servers[_server];
+		let identifier = server.identifier;
+		let data = server.data;
+		let retry_wait = server.retry_wait;
+
+		if (!refreshjobs[identifier] && !known_failed_servers[identifier]) {
+			known_failed_servers[identifier] = true;
+			console.log('Server not found: ' + identifier);
+			continue;
 		}
-		if (!found)
-			bannererror(banner, 'Server not found');
-	});
+		totalpop += infofillbanner(refreshjobs[identifier], data, identifier);
+		delete failed[identifier];
+	}
+
+	for (let job in failed) {
+		bannererror(refreshjobs[job], 'Server Offline.');
+	}
+
 	$('.bannerusercount').text(totalpop + ' total players.');
+}
+
+function errorallbanners(errormessage) {
+	console.log('Error all banners: ' + errormessage);
+	$.each(refreshjobs, function (_, banner) {
+		bannererror(banner, errormessage);
+	});
 }
 
 refreshtime = 1000;
 function reloadbanners(force) {
 	let ourrefreshtime = refreshtime;
+
 	if (force || !getCookie("disablerefresh")) {
 		let ajax_request = {
 			url: "./serverinfo.json",
 			success: do_reload_banners,
-			error: function () {
-				$.each(refreshjobs, function (server, banner) {
-					bannererror(banner, 'Failed to load data');
-				});
-			},
+			error: _ => errorallbanners('Connection Error!'),
 			crossDomain: true,
 		};
 		$.ajax(ajax_request);
