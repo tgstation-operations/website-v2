@@ -294,14 +294,13 @@ function reloadbanners(force) {
 	let ourrefreshtime = refreshtime;
 
 	if (force || !getCookie("disablerefresh")) {
-		// let ajax_request = {
-		// 	url: "./serverinfo.json",
-		// 	success: do_reload_banners,
-		// 	error: _ => errorallbanners('Connection Error!'),
-		// 	crossDomain: true,
-		// };
-		// $.ajax(ajax_request);
-		do_reload_banners(JSON.parse('{"servers":[{"data":{"version":"/tg/Station 13","respawn":false,"enter":true,"ai":true,"host":null,"round_id":"249333","players":36,"revision":"06f6ae000b52763caf5988245123291161c209d8","revision_date":"2025-02-16T00:30:03+00:00","hub":true,"identifier":"terry","admins":3,"gamestate":3,"map_name":"Delta Station","security_level":"blue","round_duration":539.0,"time_dilation_current":0.0,"time_dilation_avg":0.783764,"time_dilation_avg_slow":1.03883,"time_dilation_avg_fast":0.355333,"soft_popcap":0,"hard_popcap":0,"extreme_popcap":0,"popcap":null,"bunkered":false,"interviews":false,"shuttle_mode":"idle","shuttle_timer":10,"active_players":null,"public_address":"terry.tgstation13.org:3336"},"identifier":"terry","retry_wait":0},{"data":{"version":"/tg/Station 13","respawn":false,"enter":true,"ai":true,"host":null,"round_id":"249330","players":0,"revision":"750a84bd66f01fc8673db99910a6ef0f78059c2a","revision_date":"2025-02-16T00:00:05+00:00","hub":true,"identifier":"sybil","admins":0,"gamestate":3,"map_name":"MetaStation","security_level":"green","round_duration":90.0,"time_dilation_current":2995.0,"time_dilation_avg":3041.17,"time_dilation_avg_slow":2582.81,"time_dilation_avg_fast":2982.65,"soft_popcap":0,"hard_popcap":0,"extreme_popcap":0,"popcap":null,"bunkered":false,"interviews":false,"shuttle_mode":"idle","shuttle_timer":10,"active_players":null,"public_address":"sybil.tgstation13.org:1337"},"identifier":"sybil","retry_wait":0},{"data":{"version":"/tg/Station 13","respawn":false,"enter":true,"ai":true,"host":null,"round_id":"249331","players":0,"revision":"790e71122653eeec15af037d81ea89583334b0d8","revision_date":"2025-02-16T00:15:03+00:00","hub":true,"identifier":"manuel","admins":0,"gamestate":3,"map_name":"Ice Box Station","security_level":"green","round_duration":79.0,"time_dilation_current":3301.0,"time_dilation_avg":3228.76,"time_dilation_avg_slow":2599.78,"time_dilation_avg_fast":3243.79,"soft_popcap":0,"hard_popcap":0,"extreme_popcap":0,"popcap":null,"bunkered":false,"interviews":false,"shuttle_mode":"idle","shuttle_timer":10,"active_players":null,"public_address":"manuel.tgstation13.org:1447"},"identifier":"manuel","retry_wait":0},{"data":{"version":"TGMC","respawn":true,"enter":true,"ai":true,"host":null,"round_id":"35047","players":0,"revision":"6534eaa734a912c60a1507d42ec073827da55ac5","revision_date":"2025-02-14T22:17:05+00:00","hub":true,"identifier":"TGMC","admins":0,"gamestate":1,"map_name":"Prison Station (Pillar of Spring)","security_level":"green","round_duration":243.0,"time_dilation_current":3442.0,"time_dilation_avg":3329.0,"time_dilation_avg_slow":2606.83,"time_dilation_avg_fast":3410.36,"soft_popcap":0,"hard_popcap":200,"extreme_popcap":250,"popcap":250,"bunkered":null,"interviews":null,"shuttle_mode":null,"shuttle_timer":null,"active_players":null,"public_address":"tgmc.tgstation13.org:5337"},"identifier":"TGMC","retry_wait":0}],"last_update":"2025-02-16T17:08:07.613060385Z"}'));
+		let ajax_request = {
+			url: "./serverinfo.json",
+			success: do_reload_banners,
+			error: _ => errorallbanners('Connection Error!'),
+			crossDomain: true,
+		};
+		$.ajax(ajax_request);
 	} else ourrefreshtime = ourrefreshtime * 60;
 
 	if (document.hidden || !iSeeYou)
