@@ -13,6 +13,8 @@ function getCookie(cname) {
 var refreshjobs = {};
 refreshtimer = 0;
 function setupreloader(server, target) {
+	server = server.toLowerCase();
+
 	if (refreshjobs[server]) {
 		console.log('Dupe reload job' + server);
 		return;
@@ -255,7 +257,7 @@ function do_reload_banners(data) {
 
 	for (let _server in servers) {
 		let server = servers[_server];
-		let identifier = server.identifier;
+		let identifier = server.identifier.toLowerCase();
 		let data = server.data;
 		let retry_wait = server.retry_wait;
 
@@ -264,12 +266,17 @@ function do_reload_banners(data) {
 			console.log('Server not found: ' + identifier);
 			continue;
 		}
-		totalpop += infofillbanner(refreshjobs[identifier], data, identifier);
+
+		if (retry_wait) {
+			bannererror(refreshjobs[identifier], 'Server Offline. Trying again in ' + retry_wait + ' cycles.');
+		} else {
+			totalpop += infofillbanner(refreshjobs[identifier], data, identifier);
+		}
 		delete failed[identifier];
 	}
 
 	for (let job in failed) {
-		bannererror(refreshjobs[job], 'Server Offline.');
+		bannererror(refreshjobs[job], 'Server Not Found.');
 	}
 
 	$('.bannerusercount').text(totalpop + ' total players.');
