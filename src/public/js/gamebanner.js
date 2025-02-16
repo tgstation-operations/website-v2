@@ -255,8 +255,7 @@ function do_reload_banners(data) {
 		failed[job] = true;
 	}
 
-	for (let _server in servers) {
-		let server = servers[_server];
+	for (let server in servers) {
 		let identifier = server.identifier.toLowerCase();
 		let data = server.data;
 		let retry_wait = server.retry_wait;
