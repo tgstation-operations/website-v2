@@ -17,53 +17,49 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 
 # Add basics first
 RUN apk update && apk upgrade && apk add \
-	bash apache2 php7-apache2 curl ca-certificates openssl openssh git php7 php7-phar php7-json php7-iconv php7-openssl tzdata openntpd nano
+    bash apache2 php-apache2 curl ca-certificates openssl git \
+    php php-phar php-iconv php-openssl tzdata nano
 
 # No composer needed
 
 # Setup apache and php
 # TODO: Remove unneeded modules. to shrink image size.
 RUN apk add \
-	php7-ftp \
-	php7-xdebug \
-	php7-mcrypt \
-	php7-mbstring \
-	php7-soap \
-	php7-gmp \
-	php7-pdo_odbc \
-	php7-dom \
-	php7-pdo \
-	php7-zip \
-	php7-mysqli \
-	php7-sqlite3 \
-	php7-pdo_pgsql \
-	php7-bcmath \
-	php7-gd \
-	php7-odbc \
-	php7-pdo_mysql \
-	php7-pdo_sqlite \
-	php7-gettext \
-	php7-xml \
-	php7-xmlreader \
-	php7-xmlwriter \
-	php7-tokenizer \
-	php7-xmlrpc \
-	php7-bz2 \
-	php7-pdo_dblib \
-	php7-curl \
-	php7-ctype \
-	php7-session \
-	php7-redis \
-	php7-exif \
-	php7-intl \
-	php7-fileinfo \
-	php7-ldap \
-	php7-apcu
+    php-ftp \
+    php-pecl-xdebug \
+    php-mbstring \
+    php-soap \
+    php-gmp \
+    php-pdo_odbc \
+    php-dom \
+    php-pdo \
+    php-zip \
+    php-mysqli \
+    php-sqlite3 \
+    php-pdo_pgsql \
+    php-bcmath \
+    php-gd \
+    php-odbc \
+    php-pdo_mysql \
+    php-pdo_sqlite \
+    php-gettext \
+    php-xml \
+    php-xmlreader \
+    php-xmlwriter \
+    php-tokenizer \
+    php-bz2 \
+    php-pdo_dblib \
+    php-curl \
+    php-ctype \
+    php-session \
+    php-pecl-redis \
+    php-exif \
+    php-intl \
+    php-fileinfo \
+    php-ldap \
+    php-pecl-apcu
 
-# Problems installing in above stack
-RUN apk add php7-simplexml
-
-RUN cp /usr/bin/php7 /usr/bin/php \
+RUN cp /usr/bin/php /usr/local/bin/php \
     && rm -f /var/cache/apk/*
 
 # Add apache to run and configure
