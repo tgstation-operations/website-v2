@@ -9,11 +9,11 @@ COPY package-lock.json package-lock.json
 RUN npm install && npm run build && rm -rf node_modules
 
 # Alpine PHP + Apache from https://github.com/ulsmith/alpine-apache-php7/
-FROM docker.io/alpine:edge
+FROM alpine:3.21
 LABEL MAINTAINER="Paul Smith <pa.ulsmith.net>"
 
 # Add repos
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+RUN echo "https://dl-cdn.alpinelinux.org/alpine/v3.21/main" >> /etc/apk/repositories
 
 # Add basics first
 RUN apk update && apk upgrade && apk add \
