@@ -81,17 +81,6 @@
 			]
 		},
 		{
-			"text": "IRC",
-			"href": "#",
-			"dropdownId": "navbarDropdownIRC",
-			"children": [
-				{ "href": "irc://irc.rizon.net/tgstation13", "text": "#tgstation13" },
-				{ "href": "irc://irc.rizon.net/devbus", "text": "#devbus" },
-				{ "href": "irc://irc.rizon.net/coderbus", "text": "#coderbus" },
-				{ "href": "irc://irc.rizon.net/supportbus", "text": "#supportbus" }
-			]
-		},
-		{
 			"href": "https://forums.tgstation13.org/viewforum.php?f=60",
 			"text": "Discord"
 		},
