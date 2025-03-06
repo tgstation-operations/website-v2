@@ -90,8 +90,6 @@
 			"dropdownId": "navbarDropdownRelated",
 			"children": [
 				{ "type": "text", "text": "May Mays" },
-				{ "href": "https://boards.4chan.org/tg/", "text": "/tg/ (4chan)" },
-				{ "href": "https://boards.4chan.org/vg/", "text": "/vg/ (4chan)" },
 				{ "href": "https://reddit.com/r/ss13/", "text": "/r/ss13 (reddit)" },
 				{ "type": "text", "text": "Other stations" },
 				{
