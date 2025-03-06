@@ -1,6 +1,6 @@
 # tgstation13 website
 
-This repository includes the landing page and tgdb, a web interface for game admins.
+This repository includes the landing page for /tg/station13.
 
 ## Landing page
 
@@ -66,10 +66,6 @@ You can define a custom [configuration](./src/config.json). Either overwrite the
 - [sass](https://sass-lang.com/) - Pre-processor for CSS
 - [Bootstrap 5](https://getbootstrap.com/) - CSS framework. Installed as sass, in order to modify it with ease. See `./src/scss`.
 -
-
-## tgdb
-
-It's a magic box, only MrStonedOne knows what it does and how it works.
 
 ## LICENSE
 

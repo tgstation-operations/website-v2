@@ -1,1 +1,0 @@
-<span class="crossrefpopovercontainer"><a class="crossrefpopover" data-toggle="popover" data-html="true" data-content="<a href='bans.php?playercid={ITEM}'>(B)</a> <a href='conndb.php?playercid={ITEM}'>(C)</a> <a href='player.php?playercid={ITEM}'>(PP)</a>" data-placement="top" title="Quick Links" href="?playercid={ITEM}">{ITEM}</a></span>

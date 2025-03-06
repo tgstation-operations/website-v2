@@ -1,1 +1,0 @@
-<td rowspan='{ROWSPAN}'>{CKEY}</td>
