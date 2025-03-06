@@ -9,54 +9,48 @@
 	],
 	"navigation": [
 		{
-			"href": "https://tgstation13.org/phpBB",
+			"href": "https://forums.tgstation13.org",
 			"text": "Forum"
 		},
 		{
-			"text": "Wiki",
-			"href": "/wiki",
+			"text": "Wiki (Mirror)",
+			"href": "https://paradisestation.org/tgwiki2/index.php",
 			"dropdownId": "navbarDropdownWiki",
 			"children": [
-				{ "href": "/wiki", "text": "Main Page" },
-				{ "href": "/wiki/Starter_guide", "text": "New Player Tutorial" },
-				{ "href": "/wiki/Rules", "text": "Rules" },
-				{ "href": "/wiki/Jobs", "text": "Jobs" },
-				{ "href": "/wiki/Objects", "text": "Objects" },
-				{ "href": "/wiki/Locations", "text": "Locations" },
-				{ "href": "/wiki/Game_Mode", "text": "Game Modes" },
-				{ "href": "/wiki/Space_Law", "text": "Space Law" },
-				{ "href": "/wiki/Guides", "text": "Guides" }
+				{ "href": "https://paradisestation.org/tgwiki2/index.php?title=Main_Page", "text": "Main Page" },
+				{ "href": "https://paradisestation.org/tgwiki2/index.php?title=Starter_guide", "text": "New Player Tutorial" },
+				{ "href": "https://paradisestation.org/tgwiki2/index.php?title=Rules", "text": "Rules" },
+				{ "href": "https://paradisestation.org/tgwiki2/index.php?title=Jobs", "text": "Jobs" },
+				{ "href": "https://paradisestation.org/tgwiki2/index.php?title=Objects", "text": "Objects" },
+				{ "href": "https://paradisestation.org/tgwiki2/index.php?title=Locations", "text": "Locations" },
+				{ "href": "https://paradisestation.org/tgwiki2/index.php?title=Game_Mode", "text": "Game Modes" },
+				{ "href": "https://paradisestation.org/tgwiki2/index.php?title=Space_Law", "text": "Space Law" },
+				{ "href": "https://paradisestation.org/tgwiki2/index.php?title=Guides", "text": "Guides" }
 			]
 		},
 		{
 			"text": "Patreon",
-			"href": "https://www.patreon.com/tgstation",
+			"href": "https://www.patreon.com/BYOND",
 			"dropdownId": "navbarDropdownPatreon",
 			"children": [
 				{
-					"href": "https://www.patreon.com/tgstation",
-					"text": "/tg/ Server Patreon"
+					"href": "https://www.patreon.com/BYOND",
+					"text": "BYOND's Patreon"
 				},
 				{ "type": "div" },
 				{ "type": "text", "text": "Coder/Spriter/Misc Patreons:" },
 				{
-					"href": "https://www.patreon.com/spacestationart",
-					"text": "Auros's Spessmen Art Patreon"
-				},
-				{
 					"href": "https://www.patreon.com/incoming",
 					"text": "Incoming's Patreon"
-				},
-				{ "href": "https://www.patreon.com/BYOND", "text": "BYOND's Patreon" }
+				}
 			]
 		},
 		{
 			"text": "Cool Shit",
-			"href": "https://shop.spreadshirt.com/tgstation13/",
+			"href": "https://statbus.space",
 			"dropdownId": "navbarDropdownCool",
 			"children": [
-				{ "href": "https://shop.spreadshirt.com/tgstation13/", "text": "Gear" },
-				{ "href": "https://sb.atlantaned.space", "text": "Game Stats" },
+				{ "href": "https://statbus.space", "text": "Game Stats" },
 				{
 					"href": "https://twitter.com/Poly_the_Parrot",
 					"text": "Poly the Parrot"
@@ -64,8 +58,8 @@
 			]
 		},
 		{
-			"href": "https://status.tgstation13.org/",
-			"text": "Status"
+			"text": "Status (WIP?)",
+			"href": "#"
 		},
 		{
 			"text": "Dev",
@@ -74,15 +68,15 @@
 			"children": [
 				{
 					"href": "https://github.com/tgstation/tgstation",
-					"text": "/tg/ Github"
+					"text": "/tg/ GitHub"
 				},
 				{
-					"href": "https://github.com/tgstation/tgstation13.org",
-					"text": "/tg/station13.org Github"
+					"href": "https://github.com/tgstation-operations/website-v2",
+					"text": "/tg/station13.org GitHub"
 				},
 				{
-					"href": "https://lzimann.org/icon_searcher/index.php?state=&icon=",
-					"text": "/tg/ Github Icon Searcher"
+					"href": "https://github.com/tgstation-operations",
+					"text": "/tg/station Infrastructure GitHub"
 				}
 			]
 		},
@@ -98,7 +92,7 @@
 			]
 		},
 		{
-			"href": "https://tgstation13.org/phpBB/viewforum.php?f=60",
+			"href": "https://forums.tgstation13.org/viewforum.php?f=60",
 			"text": "Discord"
 		},
 		{
