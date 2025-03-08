@@ -1,7 +1,7 @@
 {
-	"name": "tgstation.org-landingpage",
+	"name": "tgstation13.org",
 	"version": "1.0.0",
-	"description": "The landing page for tgstation13",
+	"description": "Landing page for tgstation13.org",
 	"main": "index.js",
 	"scripts": {
 		"dev": "gulp watch",
@@ -14,17 +14,12 @@
 	"author": "tgstation",
 	"license": "GPL-2.0 License",
 	"devDependencies": {
-		"@babel/core": "^7.15.8",
-		"@babel/preset-env": "^7.15.8",
 		"bootstrap": "^5.1.2",
 		"bootstrap-icons": "^1.7.2",
 		"del": "^6.0.0",
 		"gulp": "^4.0.2",
-		"gulp-babel": "^8.0.0",
-		"gulp-pug-3": "^1.2.2",
 		"gulp-sass": "^5.0.0",
 		"gulp-sourcemaps": "^3.0.0",
-		"gulp-uglify": "^3.0.2",
 		"jquery": "^1.12.4",
 		"sass": "^1.42.1"
 	}
