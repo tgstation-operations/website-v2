@@ -31,6 +31,8 @@
           npmBuild = "npm run build";
           installPhase = ''
             mkdir $out
+						echo "Output Path: $out"
+						ls -al dist
             cp -r dist/* $out
           '';
         };
