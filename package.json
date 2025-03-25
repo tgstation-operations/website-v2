@@ -17,10 +17,10 @@
 		"bootstrap": "^5.1.2",
 		"bootstrap-icons": "^1.7.2",
 		"del": "^6.0.0",
-		"gulp": "^4.0.2",
+		"gulp": "^5.0.0",
 		"gulp-sass": "^5.0.0",
-		"gulp-sourcemaps": "^3.0.0",
-		"jquery": "^1.12.4",
+		"gulp-sourcemaps": "^2.6.5",
+		"jquery": "^3.7.1",
 		"sass": "^1.42.1"
 	}
 }
