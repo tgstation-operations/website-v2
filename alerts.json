@@ -1,0 +1,10 @@
+[
+    {
+        "type": "danger",
+        "message": "This is a DANGER message"
+    },
+    {
+        "type": "severe",
+        "message": "This is a SEVERE message"
+    }
+]

@@ -1,0 +1,32 @@
+{
+  "name": "tgstation13.org-lite",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/font-awesome": "^1.0.0-beta.1",
+    "@fontsource-variable/inconsolata": "^5.2.5",
+    "@fontsource-variable/roboto": "^5.2.5",
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "@lowlighter/matcha": "^3.0.0",
+    "autoprefixer": "^10.4.21",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.1",
+    "postcss-import": "^16.1.0",
+    "postcss-scss": "^4.0.9",
+    "sass": "^1.86.0",
+    "sass-migrator": "^2.3.1"
+  },
+  "scripts": {
+    "build:sass": "sass --pkg-importer=node src/sass/tg.scss src/sass/tg.css --no-source-map",
+    "watch:sass": "sass --pkg-importer=node --watch src/sass/tg.scss:src/sass/tg.css",
+    "build:css": "npm run build:sass && postcss src/sass/tg.css -o _site/assets/css/style.css",
+    "watch:css": "npm run build:sass && postcss src/sass/tg.css -o _site/assets/css/style.css --watch",
+    "watch:eleventy": "eleventy --serve",
+    "build:eleventy": "eleventy",
+    "start": "npm-run-all build:css --parallel watch:*",
+    "build": "npm-run-all build:*"
+  }
+}

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to SpaceStation 13 - /tg/station 13</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/gamebanners.js"></script>
+  </head>
+  <body data-color-scheme="dark" class="layout-simple">
+    <header>
+      <nav>
+        <menu>
+          <li>
+            <a href="#">Viennoiseries</a>
+            <menu>
+              <li>
+                <a href="#">Croissant</a>
+              </li>
+              <li>
+                <a href="#">Éclair</a>
+              </li>
+              <li>
+                <a href="#">Tartelettes</a>
+                <menu>
+                  <li>
+                    <a href="#">Aux mûres</a>
+                  </li>
+                  <li>
+                    <a href="#">Aux framboises</a>
+                  </li>
+                  <li class="disabled">
+                    <a href="#">Aux fraises</a>
+                  </li>
+                </menu>
+              </li>
+              <li>
+                <a href="#">Pain au chocolat</a>
+              </li>
+            </menu>
+          </li>
+          <li>
+            <a href="#">Macarons</a>
+          </li>
+          <li class="disabled">
+            <a href="#">Pain perdu</a>
+          </li>
+        </menu>
+      </nav>
+    </header>
+    <main>
+      <img src="/assets/img/tgstation.png" id="masthead"/>
+      <section id="alerts" class="invisible mb-4">
+        {% for alert in alerts %}
+          <div class="flash {{ alert.type }}">
+            {{ alert.message }}
+          </div>
+        {% endfor %}
+      </section>
+      <section id="about">
+        <h1 class="section-title">What is Space Station 13?</h1>
+        <article class="pb-0">
+          <p>Space Station 13 is a paranoia-laden round-based roleplaying game set against the backdrop of a nonsensical, metal
+            death trap masquerading as a space station, with charming spritework designed to represent the sci-fi setting and its
+            dangerous undertones. Have fun, and survive!</p>
+          <nav class="space-around" id="about-links">
+            <menu class="space-around">
+              <li class="py-0 px-1 m-0">
+                <a href="#">Get Byond</a>
+              </li>
+              <li class="py-0 px-1 m-0">
+                <a href="#">Host a Server</a>
+              </li>
+            </menu>
+          </nav>
+        </article>
+      </section>
+      <section id="servers" class="mt-4">
+        <h1 class="section-title">Servers</h1>
+        <article class="gamebanners">
+          {% for server in servers %}
+            <aside class="gamebanner loading" data-server="{{ server.identifier }}" id="{{ server.identifier }}">
+              <div class="icons">
+                <i class="fa fas fa-fw fa-globe hidden" id="hub" title="This server is on the byond hub"></i>
+                <i class="fa fas fa-fw fa-shield-halved hidden" id="bunker" title="This server is not accepting new players"></i>
+              </div>
+              <div class="flex start">
+                <span class="address mr-1">{{ server.public_address }}</span>
+                <span class="revision"></span>
+              </div>
+              <span class="name">{{ server.name }}</span>
+              <span class="version">Loading...</span>
+              <span class="map"></span>
+              <span class="status"></span>
+            </aside>
+          {% endfor %}
+        </article>
+      </section>
+    </main>
+    <footer></footer>
+    <div id="space-bg-container" class="">
+      <div class="bg-space space-1"></div>
+      <div class="bg-space space-2"></div>
+      <div class="bg-space space-2-blue"></div>
+      <div class="bg-space space-2-black"></div>
+      <div class="bg-space space-2-red"></div>
+      <div class="bg-space space-2-yellow"></div>
+      <div class="bg-space space-3"></div>
+    </div>
+  </body>
+</html></body></html>

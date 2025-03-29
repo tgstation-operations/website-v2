@@ -1,0 +1,194 @@
+@use "space";
+
+@import "./../../node_modules/@lowlighter/matcha/dist/matcha.css";
+
+@import "./../../node_modules/@fortawesome/fontawesome-free/css/all.css";
+@import "./../../node_modules/@fortawesome/fontawesome-free/css/v4-shims.css";
+@import "./../../node_modules/@fortawesome/fontawesome-free/css/v5-font-face.css";
+
+:root {
+  --tg-title-detail-width: 12px;
+  --ft: "Roboto Variable";
+  --fm: "Inconsolata Variable";
+  --dark-accent: #2c328e;
+  --section-bg: rgba(35, 38, 40, 0.85);
+  --link-color: #f9ad48;
+  --bg-primary: #001d3c;
+  --primary: #79c0ff;
+}
+
+body {
+  max-width: 100%;
+}
+
+.layout-simple > :is(header:first-of-type, footer:last-of-type) {
+  background-color: transparent;
+  padding: 0;
+  max-width: var(--ct-width);
+  margin: 0 auto 2rem;
+  position: relative;
+}
+
+.layout-simple > header:first-of-type > nav {
+  background-color: transparent;
+}
+
+p a,
+menu > li > :is(a, a:hover) {
+  color: var(--link-color);
+  font-family: var(--fm);
+}
+
+#about-links {
+  margin: 0;
+  menu {
+    margin: 0 auto;
+    li:hover {
+      background: transparent;
+    }
+  }
+}
+
+menu > li > :is(a:hover) {
+  text-decoration: underline;
+}
+
+img#masthead {
+  margin: 0 auto;
+  display: block;
+}
+
+main > section {
+  position: relative;
+  border: 2px solid var(--dark-accent);
+  background-color: var(--section-bg);
+}
+
+main > section.invisible {
+  border: none;
+  background: transparent;
+}
+
+.section-title {
+  filter: drop-shadow(2px 2px rgba(0, 0, 0, 0.25));
+  margin: 0;
+  font-weight: normal;
+  position: absolute;
+  left: 1rem;
+  top: -1.5rem;
+  transform: translateY(-50%);
+  display: flex;
+  width: max-content;
+  border: none;
+  background-image: linear-gradient(
+    to right,
+    transparent var(--tg-title-detail-width),
+    var(--dark-accent) var(--tg-title-detail-width),
+    var(--dark-accent) calc(100% - var(--tg-title-detail-width)),
+    transparent calc(100% - var(--tg-title-detail-width))
+  );
+  padding: 5px 15px 0 15px;
+}
+
+.section-title::before {
+  position: absolute;
+  left: -10px;
+  top: 0;
+  display: block;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom right,
+    transparent 0%,
+    transparent 45%,
+    var(--dark-accent) 55%,
+    var(--dark-accent) 100%
+  ) !important;
+  width: calc(var(--tg-title-detail-width) + 10px);
+  content: "";
+}
+
+.section-title::after {
+  position: absolute;
+  right: -10px;
+  top: 0;
+  display: block;
+  bottom: 0;
+  background: linear-gradient(
+    to top left,
+    transparent 0%,
+    transparent 45%,
+    var(--dark-accent) 55%,
+    var(--dark-accent) 100%
+  ) !important;
+  width: calc(var(--tg-title-detail-width) + 10px);
+  content: "";
+}
+
+section article {
+  margin-top: 1.5rem;
+  border: none;
+}
+
+.gamebanners {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.gamebanner {
+  border: 1px solid var(--accent);
+  font-family: var(--fm);
+  padding: 0.25rem;
+  position: relative;
+  .version,
+  .address,
+  .revision,
+  .map,
+  .status,
+  .icons {
+    font-size: 0.75rem;
+    display: block;
+  }
+  .name {
+    font-size: 1.25rem;
+  }
+  .icons {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+  }
+}
+
+.gamebanner.loading {
+  background-color: var(--bg-muted);
+  color: var(--muted);
+  border-color: var(--muted);
+}
+
+.gamebanner.underway {
+  background-color: var(--bg-primary);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.gamebanner.lobby {
+  background-color: var(--bg-success);
+  color: var(--success);
+  border-color: var(--success);
+}
+
+.gamebanner.end {
+  background-color: var(--bg-attention);
+  color: var(--attention);
+  border-color: var(--attention);
+}
+
+.gamebanner.error {
+  background-color: var(--bg-danger);
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.fa-fw.hidden {
+  display: none !important;
+}
