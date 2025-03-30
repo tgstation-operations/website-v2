@@ -32,6 +32,9 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addGlobalData("servers", serverData);
   eleventyConfig.addGlobalData("nav", navData);
   eleventyConfig.addNunjucksAsyncShortcode("webpack", shortcodes.webpack);
+  eleventyConfig.addWatchTarget(
+    path.join(__dirname, "_site/assets/manifest.json")
+  );
   return {
     dir: {
       input: "src",
