@@ -60,6 +60,15 @@ $space-3: multiple-box-shadow(100);
   }
 }
 
+#space-bg-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+
 .space-1 {
   @include generate-space-bg(1px, 50s, $space-1);
 }
