@@ -3,35 +3,30 @@
         "version": "/tg/Station 13",
         "public_address": "terry.tgstation13.org:3336",
         "identifier": "terry",
-        "retry_wait": 0,
         "name": "Terry [EU]"
     },
     {
         "version": "/tg/Station 13",
         "public_address": "sybil.tgstation13.org:1337",
         "identifier": "sybil",
-        "retry_wait": 0,
         "name": "Sybil [US-Central]"
     },
     {
         "version": "/tg/Station 13",
         "public_address": "manuel.tgstation13.org:1447",
         "identifier": "manuel",
-        "retry_wait": 0,
         "name": "Manuel [US-Central]"
     },
     {
         "version": "TGMC",
         "public_address": "tgmc.tgstation13.org:5337",
         "identifier": "TGMC",
-        "retry_wait": 0,
         "name": "TerraGov Marine Corps [US-Central]"
     },
     {
         "version": "Ned",
         "public_address": "ned.nedstation.org:1234",
         "identifier": "Ned station 13",
-        "retry_wait": 0,
         "name": "Ned Station 13 [US-East]"
     }
 ]
