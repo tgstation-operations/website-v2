@@ -1,5 +1,5 @@
-// const url = "https://tgstation13.org/serverinfo.json";
-const url = "/assets/js/serverinfo.json";
+const url = "https://tgstation13.org/serverinfo.json";
+// const url = "/assets/js/serverinfo.json";
 async function getData() {
   try {
     const response = await fetch(url);
@@ -14,16 +14,18 @@ async function getData() {
     console.error(error.message);
   }
 }
-getData();
 
 function updateBanners(server) {
   const banner = document.getElementById(`${server.identifier}`);
-  if (
+  let errortext = "Connection Error!";
+  if (!server.hasOwnProperty("data")) {
+    setBannerToErrorMode(banner, errortext);
+    return;
+  } else if (
     server.data.hasOwnProperty("ERROR") ||
     !server.data.hasOwnProperty("players") ||
     !server.data.hasOwnProperty("version")
   ) {
-    let errortext = "Connection Error!";
     if (server.data.errortext) {
       errortext = server.data.errortext;
     }
@@ -36,6 +38,11 @@ function updateBanners(server) {
   setVersion(server.data, banner);
   setMap(server.data.map_name, banner);
   setTtl(server.data, banner);
+  setIcons(
+    server.data,
+    banner.querySelector(`#${server.identifier}-hub`),
+    banner.querySelector(`#${server.identifier}-bunker`)
+  );
   return;
 }
 
@@ -135,6 +142,19 @@ function state2class(state, target) {
   }
 }
 
+function setIcons(data, hub, bunker) {
+  if (data.hasOwnProperty("hub") && true === data.hub) {
+    hub.classList.remove("hidden");
+  } else {
+    hub.classList.add("hidden");
+  }
+  if (data.hasOwnProperty("bunkered") && true === data.bunkered) {
+    bunker.classList.remove("hidden");
+  } else {
+    bunker.classList.add("hidden");
+  }
+}
+
 function pad(n, width, z) {
   z = z || "0";
   n = n + "";
@@ -149,3 +169,9 @@ function setBannerToErrorMode(banner, errorText, undo = false) {
   } else {
   }
 }
+
+getData();
+
+setInterval(function () {
+  getData();
+}, 4000);

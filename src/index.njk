@@ -9,7 +9,7 @@
   </head>
   <body data-color-scheme="dark" class="layout-simple">
     <header>
-      <nav>
+      <nav data-expandable="true">
         <menu>
           <li>
             <a href="#">Viennoiseries</a>
@@ -65,10 +65,10 @@
             dangerous undertones. Have fun, and survive!</p>
           <nav class="space-around" id="about-links">
             <menu class="space-around">
-              <li class="py-0 px-1 m-0">
+              <li class="py-0 px-1 m-0 centered">
                 <a href="#">Get Byond</a>
               </li>
-              <li class="py-0 px-1 m-0">
+              <li class="py-0 px-1 m-0 centered">
                 <a href="#">Host a Server</a>
               </li>
             </menu>
@@ -77,24 +77,24 @@
       </section>
       <section id="servers" class="mt-4">
         <h1 class="section-title">Servers</h1>
-        <article class="gamebanners">
+        <div class="gamebanners">
           {% for server in servers %}
-            <aside class="gamebanner loading" data-server="{{ server.identifier }}" id="{{ server.identifier }}">
+            <div class="gamebanner loading" data-server="{{ server.identifier }}" id="{{ server.identifier }}">
               <div class="icons">
-                <i class="fa fas fa-fw fa-globe hidden" id="hub" title="This server is on the byond hub"></i>
-                <i class="fa fas fa-fw fa-shield-halved hidden" id="bunker" title="This server is not accepting new players"></i>
+                <i class="fa fas fa-fw fa-globe hidden" id="{{ server.identifier }}-hub" title="This server is on the byond hub"></i>
+                <i class="fa fas fa-fw fa-shield-halved hidden" id="{{ server.identifier }}-bunker" title="This server is not accepting new players"></i>
               </div>
               <div class="flex start">
                 <span class="address mr-1">{{ server.public_address }}</span>
-                <span class="revision"></span>
+                <span class="revision">&nbsp;</span>
               </div>
               <span class="name">{{ server.name }}</span>
               <span class="version">Loading...</span>
-              <span class="map"></span>
-              <span class="status"></span>
-            </aside>
+              <span class="map">&nbsp;</span>
+              <span class="status">&nbsp;</span>
+            </div>
           {% endfor %}
-        </article>
+        </div>
       </section>
     </main>
     <footer></footer>
