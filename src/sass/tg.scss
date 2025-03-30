@@ -47,7 +47,7 @@ body {
   }
 }
 
-.layout-simple > :is(header:first-of-type, footer:last-of-type) {
+body :is(header:first-of-type, footer:last-of-type) {
   background-color: transparent;
   padding: 0;
   max-width: var(--ct-width);
@@ -55,7 +55,7 @@ body {
   position: relative;
 }
 
-.layout-simple > header:first-of-type > nav {
+body header:first-of-type > nav {
   background-color: transparent;
 }
 
@@ -209,4 +209,8 @@ section article {
 
 .fa-fw.hidden {
   display: none !important;
+}
+
+.flash.accent {
+  color: var(--primary);
 }
