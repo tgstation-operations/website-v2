@@ -54,9 +54,10 @@
       </section>
       <section id="servers" class="mt-4">
         <h1 class="section-title">Servers</h1>
+        <span class="playercount hidden"></span>
         <div class="gamebanners">
           {% for server in servers %}
-            <div class="gamebanner loading" data-server="{{ server.identifier }}" id="{{ server.identifier }}">
+            <a class="gamebanner loading" data-server="{{ server.identifier }}" id="{{ server.identifier }}" href="byond://{{ server.public_address }}">
               <div class="icons">
                 <i class="fa fas fa-fw fa-globe hidden" id="{{ server.identifier }}-hub" title="This server is on the byond hub"></i>
                 <i class="fa fas fa-fw fa-shield-halved hidden" id="{{ server.identifier }}-bunker" title="This server is not accepting new players"></i>
@@ -69,7 +70,7 @@
               <span class="version">Loading...</span>
               <span class="map">&nbsp;</span>
               <span class="status">&nbsp;</span>
-            </div>
+            </a>
           {% endfor %}
         </div>
       </section>

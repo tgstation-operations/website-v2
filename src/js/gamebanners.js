@@ -7,9 +7,11 @@ async function getData() {
       throw new Error(`Response status: ${response.status}`);
     }
     const data = await response.json();
+    let players = 0;
     data.servers.forEach((server) => {
-      updateBanners(server);
+      players += updateBanners(server);
     });
+    updatePlayerCount(players);
   } catch (error) {
     console.error(error.message);
   }
@@ -43,7 +45,7 @@ function updateBanners(server) {
     banner.querySelector(`#${server.identifier}-hub`),
     banner.querySelector(`#${server.identifier}-bunker`)
   );
-  return;
+  return getPlayerCount(server);
 }
 
 function setRevision(revision, banner) {
@@ -168,6 +170,19 @@ function setBannerToErrorMode(banner, errorText, undo = false) {
     banner.querySelector(".version").textContent = errorText;
   } else {
   }
+}
+
+function getPlayerCount(server) {
+  if (server.data.hasOwnProperty("players")) {
+    return server.data.players;
+  }
+  return 0;
+}
+
+function updatePlayerCount(players) {
+  const el = document.querySelector(".playercount");
+  el.textContent = `${players} players online`;
+  el.classList.remove("hidden");
 }
 
 getData();

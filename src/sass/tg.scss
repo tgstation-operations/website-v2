@@ -31,7 +31,7 @@ body {
 .gamebanners {
   display: grid;
   gap: 8px;
-  margin: 3rem 2rem 2rem 2rem;
+  margin: 0 2rem 2rem 2rem;
   grid-template-columns: repeat(1, 1fr);
 }
 
@@ -177,6 +177,10 @@ section article {
   }
 }
 
+.gamebanner:hover {
+  text-decoration: none;
+}
+
 .gamebanner.loading {
   background-color: var(--bg-muted);
   color: var(--muted);
@@ -205,6 +209,14 @@ section article {
   background-color: var(--bg-danger);
   color: var(--danger);
   border-color: var(--danger);
+}
+
+.playercount {
+  display: block;
+  text-align: right;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin: 2rem 2rem 1rem 2rem;
 }
 
 .fa-fw.hidden {
