@@ -1,0 +1,23 @@
+[
+    {
+        "title": "Cool Shit",
+        "links": [
+            {
+                "title": "Stats",
+                "href": "https://statbus.space"
+            },
+            {
+                "title": "@PolyTheParrot",
+                "href": "https://bsky.app/profile/polytheparrot.bsky.social"
+            }
+        ]
+    },
+    {
+        "title": "Forums",
+        "href": "https://forums.tgstation13.org"
+    },
+    {
+        "title": "Wiki(mirror)",
+        "href": "https://paradisestation.org/tgwiki2/index.php?title=Main_Page"
+    }
+]

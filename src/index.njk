@@ -7,45 +7,22 @@
     <link rel="stylesheet" href="{% webpack 'main.css' %}">
     <script src="{% webpack 'js/gamebanners.js' %}"></script>
   </head>
-  <body data-color-scheme="dark" class="layout-simple">
+  <body data-color-scheme="dark">
     <header>
-      <nav data-expandable="true">
+      {% macro render_menu(items) %}
         <menu>
-          <li>
-            <a href="#">Viennoiseries</a>
-            <menu>
-              <li>
-                <a href="#">Croissant</a>
-              </li>
-              <li>
-                <a href="#">Éclair</a>
-              </li>
-              <li>
-                <a href="#">Tartelettes</a>
-                <menu>
-                  <li>
-                    <a href="#">Aux mûres</a>
-                  </li>
-                  <li>
-                    <a href="#">Aux framboises</a>
-                  </li>
-                  <li class="disabled">
-                    <a href="#">Aux fraises</a>
-                  </li>
-                </menu>
-              </li>
-              <li>
-                <a href="#">Pain au chocolat</a>
-              </li>
-            </menu>
-          </li>
-          <li>
-            <a href="#">Macarons</a>
-          </li>
-          <li class="disabled">
-            <a href="#">Pain perdu</a>
-          </li>
+          {% for item in items %}
+            <li>
+              <a href="{{ item.href if item.href else '#' }}">{{ item.title }}</a>
+              {% if item.links %}
+                {{ render_menu(item.links) }}
+              {% endif %}
+            </li>
+          {% endfor %}
         </menu>
+      {% endmacro %}
+      <nav class="flex space-around">
+        {{ render_menu(nav) }}
       </nav>
     </header>
     <main>

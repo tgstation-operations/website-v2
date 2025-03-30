@@ -1,0 +1,14 @@
+[
+    {
+        "type": "info",
+        "message": "This is an INFO message"
+    },
+    {
+        "type": "warning",
+        "message": "This is a SEVERE message"
+    },
+    {
+        "type": "danger",
+        "message": "This is a DANGER message"
+    }
+]
