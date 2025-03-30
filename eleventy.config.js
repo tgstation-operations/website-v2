@@ -1,18 +1,7 @@
 const fs = require("fs");
 const path = require("path");
-
+const shortcodes = require("./utils/shortcodes");
 module.exports = async function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy({ img: "assets/img/" });
-  eleventyConfig.addPassthroughCopy({ "src/js/": "assets/js/" });
-  eleventyConfig.addPassthroughCopy({
-    "./node_modules/@fortawesome/fontawesome-free/webfonts": "assets/webfonts/",
-  });
-  eleventyConfig.addPassthroughCopy({
-    "./node_modules/@fontsource-variable/inconsolata/files": "assets/webfonts/",
-  });
-  eleventyConfig.addPassthroughCopy({
-    "./node_modules/@fontsource-variable/roboto/files": "assets/webfonts/",
-  });
   const alertsData = JSON.parse(
     fs.readFileSync(path.join(__dirname, "alerts.json"), "utf-8")
   );
@@ -21,6 +10,7 @@ module.exports = async function (eleventyConfig) {
   );
   eleventyConfig.addGlobalData("alerts", alertsData);
   eleventyConfig.addGlobalData("servers", serverData);
+  eleventyConfig.addNunjucksAsyncShortcode("webpack", shortcodes.webpack);
   return {
     dir: {
       input: "src",

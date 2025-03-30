@@ -1,15 +1,22 @@
+//Space background
 @use "space";
 
+//Framework
 @import "./../../node_modules/@lowlighter/matcha/dist/matcha.css";
 
+//Font Awesome (Icons)
 @import "./../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 @import "./../../node_modules/@fortawesome/fontawesome-free/css/v4-shims.css";
 @import "./../../node_modules/@fortawesome/fontawesome-free/css/v5-font-face.css";
 
+//Fonts
+@import "./../../node_modules/@fontsource-variable/open-sans/index.css";
+@import "./../../node_modules/@fontsource-variable/inconsolata/index.css";
+
 :root {
   --tg-title-detail-width: 12px;
-  --ft: "Roboto Variable";
-  --fm: "Inconsolata Variable";
+  --ft: "Open Sans Variable", sans-serif;
+  --fm: "Inconsolata Variable", monospace;
   --dark-accent: #2c328e;
   --section-bg: rgba(35, 38, 40, 0.85);
   --link-color: #f9ad48;
@@ -19,6 +26,25 @@
 
 body {
   max-width: 100%;
+}
+
+.gamebanners {
+  display: grid;
+  gap: 8px;
+  margin: 3rem 2rem 2rem 2rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 768px) {
+  .gamebanners {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .gamebanners {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .layout-simple > :is(header:first-of-type, footer:last-of-type) {
@@ -87,15 +113,21 @@ main > section.invisible {
     var(--dark-accent) calc(100% - var(--tg-title-detail-width)),
     transparent calc(100% - var(--tg-title-detail-width))
   );
-  padding: 5px 15px 0 15px;
+  padding: 3px 15px 6px 15px;
 }
 
-.section-title::before {
+.section-title::before,
+.section-title::after {
   position: absolute;
-  left: -10px;
   top: 0;
   display: block;
   bottom: 0;
+  width: calc(var(--tg-title-detail-width) + 10px);
+  content: "";
+}
+
+.section-title::before {
+  left: -10px;
   background: linear-gradient(
     to bottom right,
     transparent 0%,
@@ -103,16 +135,9 @@ main > section.invisible {
     var(--dark-accent) 55%,
     var(--dark-accent) 100%
   ) !important;
-  width: calc(var(--tg-title-detail-width) + 10px);
-  content: "";
 }
-
 .section-title::after {
-  position: absolute;
   right: -10px;
-  top: 0;
-  display: block;
-  bottom: 0;
   background: linear-gradient(
     to top left,
     transparent 0%,
@@ -120,8 +145,6 @@ main > section.invisible {
     var(--dark-accent) 55%,
     var(--dark-accent) 100%
   ) !important;
-  width: calc(var(--tg-title-detail-width) + 10px);
-  content: "";
 }
 
 section article {
@@ -129,17 +152,12 @@ section article {
   border: none;
 }
 
-.gamebanners {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-}
-
 .gamebanner {
   border: 1px solid var(--accent);
   font-family: var(--fm);
   padding: 0.25rem;
   position: relative;
+  line-height: 1;
   .version,
   .address,
   .revision,
@@ -150,7 +168,7 @@ section article {
     display: block;
   }
   .name {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
   }
   .icons {
     position: absolute;
