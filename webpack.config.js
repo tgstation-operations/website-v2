@@ -1,5 +1,6 @@
 const path = require("path");
 const isDev = process.env.NODE_ENV !== "production";
+const glob = require("glob-all");
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
@@ -7,6 +8,12 @@ const PostCSSPresetEnv = require("postcss-preset-env");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
+
+const PATHS = {
+  src: path.join(__dirname, "src"),
+  root: path.join(__dirname),
+};
 
 module.exports = {
   mode: isDev ? "development" : "production",
@@ -30,6 +37,16 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: isDev ? "css/[name].css" : "css/[name].[contenthash].css",
     }),
+    ...(!isDev
+      ? [
+          new PurgeCSSPlugin({
+            paths: glob.sync([`${PATHS.src}/**/*`, `${PATHS.root}/**/*`], {
+              nodir: true,
+            }),
+            content: ["*.js", "*.njk", "*.json"],
+          }),
+        ]
+      : []),
     new CopyWebpackPlugin({
       patterns: [
         {
