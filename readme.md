@@ -46,3 +46,7 @@ The final site files will be in `_site`.
 - Dismissible sections & alerts 
 - Pause space option
 - Convert/support yaml for alerts & nav (allows for stuff to be commented out)
+- Remove unneeded dependencies
+
+## Known Issues
+- About a billion edge-cases in terms of what `serverinfo.json` returns
