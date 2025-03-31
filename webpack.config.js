@@ -43,7 +43,7 @@ module.exports = {
             paths: glob.sync([`${PATHS.src}/**/*`, `${PATHS.root}/**/*`], {
               nodir: true,
             }),
-            content: ["*.js", "*.njk", "*.json"],
+            content: ["*.js", "*.njk", "*.yaml"],
           }),
         ]
       : []),

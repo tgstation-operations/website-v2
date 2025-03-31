@@ -1,0 +1,11 @@
+info:
+    # - message: "This is an INFO message"
+    #   dismissible: true
+
+warning:
+    # - message: "This is a SEVERE message"
+    #   dismissible: false
+
+danger:
+    # - message: "This is a DANGER message"
+    #   dismissible: true

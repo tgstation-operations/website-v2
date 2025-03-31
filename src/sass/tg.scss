@@ -226,3 +226,15 @@ section article {
 .flash.accent {
   color: var(--primary);
 }
+
+.flash.info {
+  background: var(--bg-primary);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.flash.warning {
+  background: var(--bg-severe);
+  color: var(--severe);
+  border-color: var(--severe);
+}

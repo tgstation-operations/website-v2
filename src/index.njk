@@ -28,10 +28,12 @@
     <main>
       <img src="/assets/img/tgstation.png" id="masthead"/>
       <section id="alerts" class="invisible mb-4">
-        {% for alert in alerts %}
-          <div class="flash {{ alert.type }}">
-            {{ alert.message }}
-          </div>
+        {% for type, messages in alerts %}
+          {% for message in messages %}
+            <div class="flash {{ type }} {% if message.dismissible %}dismissible{% endif %}">
+              {{ message.message }}
+            </div>
+          {% endfor %}
         {% endfor %}
       </section>
       <section id="about">

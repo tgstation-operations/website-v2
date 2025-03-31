@@ -2,6 +2,6 @@ _site/
 node_modules/
 src/sass/*.css*
 
-alerts.json
-nav.json
-servers.json
+alerts.yaml
+nav.yaml
+servers.yaml
