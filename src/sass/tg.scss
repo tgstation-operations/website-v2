@@ -34,6 +34,9 @@ body {
   margin: 0 2rem 2rem 2rem;
   grid-template-columns: repeat(1, 1fr);
 }
+.section-title {
+  position: relative;
+}
 .section-title::before,
 .section-title::after {
   display: none;
@@ -123,7 +126,6 @@ main > section.invisible {
   filter: drop-shadow(2px 2px rgba(0, 0, 0, 0.25));
   margin: 0;
   font-weight: normal;
-  position: relative;
   left: 1rem;
   top: -1.5rem;
   transform: translateY(-50%);
