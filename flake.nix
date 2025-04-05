@@ -17,14 +17,14 @@
       
       forAllSystems = f: nixpkgs.lib.genAttrs allSystems (system: f {
         pkgs = nixpkgs.legacyPackages.${system};
-      });
-      tgstation-website-node-modules = ({ pkgs }: pkgs.mkYarnPackage {
-        name = "tgstation-website-node-modules";
-        src = ./.;
+        tgstation-website-node-modules = pkgs.mkYarnPackage {
+          name = "tgstation-website-node-modules";
+          src = ./.;
+        };
       });
     in
     {
-      packages = forAllSystems ({ pkgs }: {
+      packages = forAllSystems ({ pkgs, tgstation-website-node-modules }: {
         default = pkgs.stdenv.mkDerivation {
           name = "tgstation-website";
           buildInputs = [
