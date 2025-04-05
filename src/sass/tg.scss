@@ -34,6 +34,20 @@ body {
   margin: 0 2rem 2rem 2rem;
   grid-template-columns: repeat(1, 1fr);
 }
+.section-title::before,
+.section-title::after {
+  display: none;
+}
+@media (min-width: 512px) {
+  .section-title {
+    position: absolute;
+    max-width: max-content;
+  }
+  .section-title::before,
+  .section-title::after {
+    display: block;
+  }
+}
 
 @media (min-width: 768px) {
   .gamebanners {
@@ -109,12 +123,11 @@ main > section.invisible {
   filter: drop-shadow(2px 2px rgba(0, 0, 0, 0.25));
   margin: 0;
   font-weight: normal;
-  position: absolute;
+  position: relative;
   left: 1rem;
   top: -1.5rem;
   transform: translateY(-50%);
   display: flex;
-  width: max-content;
   border: none;
   background-image: linear-gradient(
     to right,
@@ -130,7 +143,6 @@ main > section.invisible {
 .section-title::after {
   position: absolute;
   top: 0;
-  display: block;
   bottom: 0;
   width: calc(var(--tg-title-detail-width) + 10px);
   content: "";
