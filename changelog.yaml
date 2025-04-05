@@ -1,0 +1,8 @@
+- version: 1.0.1
+  date: 2025-04-05
+  changes:
+      added: [Version string added to footer, Link to github]
+- version: 1.0.0
+  date: 2025-04-05
+  changes:
+      added: [This changelog]

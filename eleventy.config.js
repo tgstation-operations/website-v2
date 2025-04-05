@@ -14,7 +14,7 @@ module.exports = async function (eleventyConfig) {
   const alertsData = readDataFile("alerts.yaml", "example-alerts.yaml");
   const serverData = readDataFile("servers.yaml", "example-servers.yaml");
   const navData = readDataFile("nav.yaml", "example-nav.yaml");
-
+  const changelogData = yaml.load(fs.readFileSync("changelog.yaml", "utf-8"));
   // alertsData.forEach((alert) => {
   //   let validAlerts = ["danger", "warning", "info"];
   //   if (alert && !validAlerts.includes(alert.type)) {
@@ -33,6 +33,7 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addGlobalData("alerts", alertsData);
   eleventyConfig.addGlobalData("servers", serverData);
   eleventyConfig.addGlobalData("nav", navData);
+  eleventyConfig.addGlobalData("changelog", changelogData);
   eleventyConfig.addNunjucksAsyncShortcode("webpack", shortcodes.webpack);
   eleventyConfig.addWatchTarget(
     path.join(__dirname, "_site/assets/manifest.yaml")
