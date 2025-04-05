@@ -1,4 +1,8 @@
 # tgstation13.org
+
+## HEADS UP!!! BRANCHES WERE RENAMED!!!
+The new default branch here is `main`. The previous website code was moved to the `legacy` branch.
+
 This is a rehash of the second(?) redesign with some more modern standards.
 
 Under the hood, this site uses the Eleventy static site generator to convert our single(!) `index.njk` page to static HTML. Is this really necessary? Absolutely not, we can just as easily get by with static HTML.
