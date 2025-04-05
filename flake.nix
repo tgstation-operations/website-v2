@@ -36,7 +36,7 @@
             ls -al ${tgstation-website-node-modules}/libexec
             ls -al ${tgstation-website-node-modules}/libexec/tgstation13.org-lite
             ln -s ${tgstation-website-node-modules}/libexec/tgstation13.org-lite/.yarn .yarn
-            ${pkgs.yarn}/bin/yarn build --offline
+            ${pkgs.yarn}/bin/yarn --offline build
           '';
           src = ./.;
           installPhase = ''
