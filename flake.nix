@@ -19,7 +19,7 @@
         pkgs = nixpkgs.legacyPackages.${system};
       });
       node-modules = pkgs.mkYarnPackage {
-        name = "tgstation-website-node-modules"
+        name = "tgstation-website-node-modules";
         src = ./.;
       };
     in
