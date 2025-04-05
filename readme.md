@@ -24,6 +24,9 @@ This file controls the site navigation menu at the top of the page. See `example
 ### `servers.yaml`
 This populates the initial static server banners on the homepage. The `identifier` key on server objects is important: `gamebanners.js` will update any banner that has a matching identifier from the `serverinfo.json` response. _If you want a server to appear on the homepage, it must be listed in this file first._
 
+### Banners 
+Any image placed in `src/img/banners` will be picked up by eleventy at buildtime and added to a list of banners, one of which will be picked at random on page load. Images should be 728 by 90 pixels. A grey "loading" banner will be visible if an image cannot be loaded for whatever reason.
+
 ## Building
 
 Install dependencies with your package manager of choice. I use `yarn`: 
