@@ -59,6 +59,12 @@ body header:first-of-type > nav {
   background-color: transparent;
 }
 
+footer {
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
 menu > li {
   text-align: center;
 }
