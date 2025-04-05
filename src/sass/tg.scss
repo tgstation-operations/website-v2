@@ -59,6 +59,10 @@ body header:first-of-type > nav {
   background-color: transparent;
 }
 
+menu > li {
+  text-align: center;
+}
+
 p a,
 menu > li > :is(a, a:hover) {
   color: var(--link-color);
