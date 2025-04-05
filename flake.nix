@@ -34,7 +34,8 @@
           buildPhase = ''
             ls -al ${tgstation-website-node-modules}
             ls -al ${tgstation-website-node-modules}/libexec
-            ln -s ${tgstation-website-node-modules}/libexec/website-v2/node_modules node_modules
+            ls -al ${tgstation-website-node-modules}/libexec/tgstation13.org-lite
+            ln -s ${tgstation-website-node-modules}/libexec/tgstation13.org-lite/node_modules node_modules
             ${pkgs.yarn}/bin/yarn build
           '';
           src = ./.;
