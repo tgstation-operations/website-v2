@@ -18,10 +18,10 @@
       forAllSystems = f: nixpkgs.lib.genAttrs allSystems (system: f {
         pkgs = nixpkgs.legacyPackages.${system};
       });
-      node-modules = pkgs.mkYarnPackage {
+      node-modules = ({ pkgs }: pkgs.mkYarnPackage {
         name = "tgstation-website-node-modules";
         src = ./.;
-      };
+      });
     in
     {
       packages = forAllSystems ({ pkgs }: {
