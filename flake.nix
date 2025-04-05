@@ -21,7 +21,7 @@
     in
     {
       packages = forAllSystems ({ pkgs }: {
-        default = pkgs.buildNpmPackage {
+        default = pkgs.buildYarnPackage {
           name = "tgstation-website";
           buildInputs = with pkgs; [
             nodejs_22
