@@ -27,7 +27,7 @@
             nodejs_22
           ];
           src = ./.;
-          npmDepsHash = "sha256-+YrFWZEQvBfrlUOB0EwlN3sNBgqnc78HD7KNPJP086Q=";
+          npmDepsHash = "sha256-Vyk81TmdhecwyF+Q4xyGkUt5TtORrEUu9g1eZ+/yQDs=";
           npmBuild = "npm run build";
           installPhase = ''
             mkdir $out
