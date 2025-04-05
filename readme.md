@@ -46,6 +46,9 @@ yarn run build
 
 The final site files will be in `_site`.
 
+### `changelog.yaml`
+This file is nominally for tracking changes made to the site files. The top `version` value is pulled into the site footer at build time.
+
 ## TODO
 - Dismissible sections & alerts 
 - Pause space option
