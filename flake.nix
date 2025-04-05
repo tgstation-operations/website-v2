@@ -17,7 +17,7 @@
       
       forAllSystems = f: nixpkgs.lib.genAttrs allSystems (system: f {
         pkgs = nixpkgs.legacyPackages.${system};
-        tgstation-website-node-modules = pkgs.mkYarnPackage {
+        tgstation-website-node-modules = nixpkgs.legacyPackages.${system}.mkYarnPackage {
           name = "tgstation-website-node-modules";
           src = ./.;
         };
