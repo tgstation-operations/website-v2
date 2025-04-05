@@ -76,6 +76,17 @@
           {% endfor %}
         </div>
       </section>
+      <section id="banner" class="invisible mb-4">
+        <img
+          src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzI4IiBoZWlnaHQ9IjkwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSI3MjgiIGhlaWdodD0iOTAiIGZpbGw9IiM3ZjdjODAiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMwMDAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjMwIj5sb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg=="
+          wdith="728"
+          height="90">
+        <script>
+          const banners = {{ banners | dump | safe }};
+          let banner = banners[Math.floor(Math.random() * banners.length)]
+          document.querySelector('#banner img').setAttribute('src', `assets/img/banners/${banner}`);
+        </script>
+      </section>
     </main>
     <footer>
       /tg/station 13 - v.{{ changelog[0].version }} -
