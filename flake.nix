@@ -18,17 +18,26 @@
       forAllSystems = f: nixpkgs.lib.genAttrs allSystems (system: f {
         pkgs = nixpkgs.legacyPackages.${system};
       });
+      node-modules = pkgs.mkYarnPackage {
+        name = "tgstation-website-node-modules"
+        src = ./.;
+      };
     in
     {
       packages = forAllSystems ({ pkgs }: {
-        default = pkgs.buildYarnPackage {
+        default = pkgs.stdenv.mkDerivation {
           name = "tgstation-website";
           buildInputs = with pkgs; [
             nodejs_22
+            node-modules
           ];
+          buildPhase = ''
+            ls -al ${node-modules}
+            ls -al ${node-modules}/libexec
+            ln -s ${node-modules}/libexec/website-v2/node_modules node_modules
+            ${pkgs.yarn}/bin/yarn build
+          '';
           src = ./.;
-          npmDepsHash = "sha256-+YrFWZEQvBfrlUOB0EwlN3sNBgqnc78HD7KNPJP086Q=";
-          npmBuild = "npm run build";
           installPhase = ''
             mkdir $out
             cp -r _site/* $out
