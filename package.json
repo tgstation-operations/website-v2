@@ -36,6 +36,7 @@
     "sass-migrator": "^2.3.1",
     "terser-webpack-plugin": "^5.3.14",
     "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1",
     "webpack-manifest-plugin": "^5.0.1"
   },
   "scripts": {
