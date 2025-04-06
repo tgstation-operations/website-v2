@@ -33,6 +33,7 @@
     "purgecss-webpack-plugin": "^7.0.2",
     "rimraf": "^6.0.1",
     "sass": "^1.86.0",
+    "sass-loader": "^16.0.5",
     "sass-migrator": "^2.3.1",
     "terser-webpack-plugin": "^5.3.14",
     "webpack": "^5.98.0",
