@@ -1,0 +1,27 @@
+name: Trigger Infrastructure Update
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: "infra-update"
+  cancel-in-progress: false
+
+jobs:
+  trigger_infra_update:
+    name: Trigger Infrastructure Update Workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate App Token
+        id: app-token-generation
+        uses: actions/create-github-app-token@3ff1caaa28b64c9cc276ce0a02e2ff584f3900c5
+        with:
+          repositories: infrastructure
+          app-id: ${{ secrets.CI_APP_ID }}
+          private-key: ${{ secrets.CI_APP_PRIVATE_KEY }}
+
+      - name: Trigger infrastructure workflow
+        run: |
+          curl -XPOST -u "tgstation-operations-ci:${{ steps.app-token-generation.outputs.token }}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/tgstation-operations/infrastructure/actions/workflows/website_sync.yml/dispatches --data '{"ref":"main"}'
