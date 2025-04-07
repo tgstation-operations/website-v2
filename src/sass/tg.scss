@@ -45,6 +45,7 @@ body {
   .section-title {
     position: absolute;
     max-width: max-content;
+    transform: translateY(-50%);
   }
   .section-title::before,
   .section-title::after {
@@ -128,7 +129,6 @@ main > section.invisible {
   font-weight: normal;
   left: 1rem;
   top: -1.5rem;
-  transform: translateY(-50%);
   display: flex;
   border: none;
   background-image: linear-gradient(
