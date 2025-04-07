@@ -1,0 +1,19 @@
+- version: "/tg/Station 13"
+  public_address: "terry.tgstation13.org:3336"
+  identifier: "terry"
+  name: "Terry [EU]"
+
+- version: "/tg/Station 13"
+  public_address: "sybil.tgstation13.org:1337"
+  identifier: "sybil"
+  name: "Sybil [US-Central]"
+
+- version: "/tg/Station 13"
+  public_address: "manuel.tgstation13.org:1447"
+  identifier: "manuel"
+  name: "Manuel [US-Central]"
+
+- version: "TGMC"
+  public_address: "tgmc.tgstation13.org:5337"
+  identifier: "TGMC"
+  name: "TerraGov Marine Corps [US-Central]"

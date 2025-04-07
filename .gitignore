@@ -1,7 +1,3 @@
 _site/
 node_modules/
 src/sass/*.css*
-
-alerts.yaml
-nav.yaml
-servers.yaml
