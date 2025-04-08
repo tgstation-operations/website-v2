@@ -22,6 +22,7 @@
   --link-color: #f9ad48;
   --bg-primary: #001d3c;
   --primary: #79c0ff;
+  --ct-width: 800px;
 }
 
 body {
@@ -161,7 +162,7 @@ main > section.invisible {
   ) !important;
 }
 .section-title::after {
-  right: -10px;
+  right: -9.5px;
   background: linear-gradient(
     to top left,
     transparent 0%,
