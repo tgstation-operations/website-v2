@@ -2,16 +2,16 @@
 @use "space";
 
 //Framework
-@import "./../../node_modules/@lowlighter/matcha/dist/matcha.css";
+@import "./../node_modules/@lowlighter/matcha/dist/matcha.css";
 
 //Font Awesome (Icons)
-@import "./../../node_modules/@fortawesome/fontawesome-free/css/all.css";
-@import "./../../node_modules/@fortawesome/fontawesome-free/css/v4-shims.css";
-@import "./../../node_modules/@fortawesome/fontawesome-free/css/v5-font-face.css";
+@import "./../node_modules/@fortawesome/fontawesome-free/css/all.css";
+@import "./../node_modules/@fortawesome/fontawesome-free/css/v4-shims.css";
+@import "./../node_modules/@fortawesome/fontawesome-free/css/v5-font-face.css";
 
 //Fonts
-@import "./../../node_modules/@fontsource-variable/open-sans/index.css";
-@import "./../../node_modules/@fontsource-variable/inconsolata/index.css";
+@import "./../node_modules/@fontsource-variable/open-sans/index.css";
+@import "./../node_modules/@fontsource-variable/inconsolata/index.css";
 
 :root {
   --tg-title-detail-width: 12px;
@@ -27,6 +27,10 @@
 
 body {
   max-width: 100%;
+}
+
+article a {
+  color: var(--primary);
 }
 
 .gamebanners {
@@ -267,4 +271,10 @@ section article {
 #banner img {
   margin: 0 auto;
   display: block;
+}
+
+.date {
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 0.5rem;
 }

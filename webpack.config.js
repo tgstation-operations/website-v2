@@ -11,7 +11,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
 
 const PATHS = {
-  src: path.join(__dirname, "src"),
+  src: path.join(__dirname, ""),
   root: path.join(__dirname),
 };
 
@@ -25,7 +25,7 @@ module.exports = {
   devtool: isDev ? "cheap-module-source-map" : "source-map",
   entry: [
     // path.resolve(__dirname, "src/js/index.js"),
-    path.resolve(__dirname, "src/sass/tg.scss"),
+    path.resolve(__dirname, "sass/tg.scss"),
   ],
   output: {
     filename: isDev ? "js/[name].js" : "js/[name].[contenthash].js",
@@ -50,11 +50,11 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, "src/js/"),
+          from: path.resolve(__dirname, "js/"),
           to: path.resolve(__dirname, "_site/assets/js/"),
         },
         {
-          from: path.resolve(__dirname, "src/img/"),
+          from: path.resolve(__dirname, "img/"),
           to: path.resolve(__dirname, "_site/assets/img/"),
         },
       ],

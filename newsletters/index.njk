@@ -1,0 +1,18 @@
+---
+title: Newsletter Archive
+layout: layout.njk
+pagination:
+  data: collections.newsletter
+  size: 1000  # or however many you want per page
+  reverse: true
+permalink: newsletters/index.html
+---
+
+<ul>
+    {% for item in pagination.items %}
+        <li>
+            <a href="{{ item.url }}">{{ item.data.title }}</a>
+            <span>({{ item.date | date() }})</span>
+        </li>
+    {% endfor %}
+</ul>

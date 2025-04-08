@@ -30,7 +30,7 @@ module.exports = async function (eleventyConfig) {
 
   const banners = [];
 
-  fs.readdir(path.join(__dirname, "src/img/banners"), (err, files) => {
+  fs.readdir(path.join(__dirname, "img/banners"), (err, files) => {
     files.forEach((file) => {
       banners.push(file);
     });
