@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const shortcodes = require("./utils/shortcodes");
 const yaml = require("js-yaml");
+const { DateTime } = require("luxon");
 
 function readDataFile(filename, fallback) {
   const primaryPath = path.join(__dirname, filename);
@@ -36,11 +37,14 @@ module.exports = async function (eleventyConfig) {
     });
   });
   eleventyConfig.addGlobalData("banners", banners);
-
+  eleventyConfig.addFilter("date", (dateObj) => {
+    return DateTime.fromObject(dateObj, { zone: "utc" }).toFormat("MMMM yyyy");
+  });
   return {
     dir: {
-      input: "src",
       output: "_site",
+      includes: "_includes",
+      layouts: "_includes/layouts",
     },
   };
 };

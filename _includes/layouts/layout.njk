@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Welcome to SpaceStation 13 - /tg/station 13</title>
+        <link rel="stylesheet" href="{% webpack 'main.css' %}">
+    </head>
+    <body data-color-scheme="dark">
+        <header>
+            {% macro render_menu(items) %}
+                <menu>
+                    {% for item in items %}
+                        <li>
+                            <a href="{{ item.href if item.href else '#' }}">{{ item.title }}</a>
+                            {% if item.links %}
+                                {{ render_menu(item.links) }}
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </menu>
+            {% endmacro %}
+            <nav class="flex space-around">
+                {{ render_menu(nav) }}
+            </nav>
+        </header>
+        <main>
+            <section>
+                <h1 class="section-title">{{ title }}</h1>
+                <article class="pb-0">
+                    {% if date %}
+                        <span class="date">{{ date|date }}</span>
+                    {% endif %}
+                    {{ content | safe }}
+                </article>
+            </section>
+        </main>
+        <footer>
+            /tg/station 13 - v.{{ changelog[0].version }} -
+            <a href="https://github.com/tgstation-operations/website-v2" target="_blank">Source Code</a><br> Site design based off of work done by
+            <a href="https://mozi-h.de/" target="_blank">mozi_h</a>
+        </footer>
+        <div id="space-bg-container" class="">
+            <div class="bg-space space-1"></div>
+            <div class="bg-space space-2"></div>
+            <div class="bg-space space-2-blue"></div>
+            <div class="bg-space space-2-black"></div>
+            <div class="bg-space space-2-red"></div>
+            <div class="bg-space space-2-yellow"></div>
+            <div class="bg-space space-3"></div>
+        </div>
+    </body>
+</html>
