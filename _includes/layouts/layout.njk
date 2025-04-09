@@ -11,6 +11,9 @@
         <header>
             {% macro render_menu(items) %}
                 <menu>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
                     {% for item in items %}
                         <li>
                             <a href="{{ item.href if item.href else '#' }}">{{ item.title }}</a>
