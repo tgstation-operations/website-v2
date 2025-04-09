@@ -181,6 +181,12 @@ section article {
   border: none;
 }
 
+section:not(.invisible) .dismiss {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
 .gamebanner {
   border: 1px solid var(--accent);
   font-family: var(--fm);
@@ -252,6 +258,12 @@ section article {
   display: none !important;
 }
 
+.flash {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .flash.accent {
   color: var(--primary);
 }
@@ -266,6 +278,12 @@ section article {
   background: var(--bg-severe);
   color: var(--severe);
   border-color: var(--severe);
+}
+
+.flash .dismiss,
+section .dismiss {
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 #banner img {

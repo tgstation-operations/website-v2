@@ -30,14 +30,18 @@
       <section id="alerts" class="invisible mb-4">
         {% for type, messages in alerts %}
           {% for message in messages %}
-            <div class="flash {{ type }} {% if message.dismissible %}dismissible{% endif %}" id="{{ message.message|slug }}">
-              {{ message.message }}
+            <div class="flash {{ type }}" id="{{ message.message|slug }}">
+              <span>{{ message.message }}</span>
+              {% if message.dismissible %}
+                <i class="fa fa-times dismiss" title="Dismiss this alert"></i>
+              {% endif %}
             </div>
           {% endfor %}
         {% endfor %}
       </section>
       <section id="about">
-        <h1 class="section-title">What is Space Station 13?</h1>
+        <h1 class="section-title" id="about">What is Space Station 13?</h1>
+        <i class="fa fa-times dismiss" title="Dismiss this section"></i>
         <article class="pb-0">
           <p>Space Station 13 is a paranoia-laden round-based roleplaying game set against the backdrop of a nonsensical, metal
             death trap masquerading as a space station, with charming spritework designed to represent the sci-fi setting and its
