@@ -22,7 +22,7 @@ function updateBanners(server) {
   let errortext = "Connection Error!";
   if (!server.hasOwnProperty("data") || null === server.data) {
     setBannerToErrorMode(banner, errortext);
-    return;
+    return 0;
   } else if (
     server.data.hasOwnProperty("ERROR") ||
     !server.data.hasOwnProperty("players") ||
@@ -32,7 +32,7 @@ function updateBanners(server) {
       errortext = server.data.errortext;
     }
     setBannerToErrorMode(banner, errortext);
-    return;
+    return 0;
   }
 
   state2class(server.data.gamestate, banner);
