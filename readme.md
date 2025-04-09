@@ -52,9 +52,23 @@ The final site files will be in `_site`.
 ### `changelog.yaml`
 This file is nominally for tracking changes made to the site files. The top `version` value is pulled into the site footer at build time.
 
+
+## Newsletters! 
+We also use eleventy to generate the newsletter archive. Newsletters should be written in markdown, and require the following frontmatter(metadata):
+
+```markdown
+---
+title: <Title of the newsletter>
+date: <Must be formatted YYYY-MM-DD>
+layout: layout.njk
+tags: newsletter
+---
+```
+The `layout` and `tags` keys are required and must not be changed.
+
 ## TODO
-- Dismissible sections & alerts 
-- Pause space option
+- ~~Dismissible sections & alerts ~~
+- ~~Pause space option~~
 - ~~Convert/support yaml for alerts & nav (allows for stuff to be commented out)~~
 - Remove unneeded dependencies
 - GitHub Actions
