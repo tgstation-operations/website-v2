@@ -20,7 +20,7 @@ async function getData() {
 function updateBanners(server) {
   const banner = document.getElementById(`${server.identifier}`);
   let errortext = "Connection Error!";
-  if (!server.hasOwnProperty("data")) {
+  if (!server.hasOwnProperty("data") || null === server.data) {
     setBannerToErrorMode(banner, errortext);
     return;
   } else if (
