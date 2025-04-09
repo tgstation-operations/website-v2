@@ -1,3 +1,7 @@
+- version: 1.0.7
+  date: 2025-04-09
+  changes:
+      changed: [Production assets no longer have content hashes]
 - version: 1.0.6
   date: 2025-04-09
   changes:

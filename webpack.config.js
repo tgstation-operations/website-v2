@@ -28,14 +28,14 @@ module.exports = {
     path.resolve(__dirname, "sass/tg.scss"),
   ],
   output: {
-    filename: isDev ? "js/[name].js" : "js/[name].[contenthash].js",
+    filename: "js/[name].js",
     path: path.resolve(__dirname, "_site/assets"),
     publicPath: "/assets/",
   },
   plugins: [
     new WebpackManifestPlugin(),
     new MiniCssExtractPlugin({
-      filename: isDev ? "css/[name].css" : "css/[name].[contenthash].css",
+      filename: "css/[name].css",
     }),
     ...(!isDev
       ? [
@@ -98,16 +98,14 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)$/i,
         type: "asset",
         generator: {
-          filename: `assets/img/${
-            isDev ? "[name][ext]" : "[contenthash][ext]"
-          }`,
+          filename: `assets/img/[name][ext]`,
         },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: "asset/resource",
         generator: {
-          filename: `webfonts/${isDev ? "[name][ext]" : "[contenthash][ext]"}`,
+          filename: `webfonts/[name][ext]`,
         },
         include: path.resolve(__dirname, "node_modules"),
       },
