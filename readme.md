@@ -49,6 +49,10 @@ yarn run build
 
 The final site files will be in `_site`.
 
+### Clean Build
+Run a clean build with docker:
+`docker run -it -v $(pwd):/app -w /app node:latest npm run build`
+
 ### `changelog.yaml`
 This file is nominally for tracking changes made to the site files. The top `version` value is pulled into the site footer at build time.
 
@@ -70,8 +74,9 @@ The `layout` and `tags` keys are required and must not be changed.
 - ~~Dismissible sections & alerts ~~
 - ~~Pause space option~~
 - ~~Convert/support yaml for alerts & nav (allows for stuff to be commented out)~~
+- Shift+click to join rounds
 - Remove unneeded dependencies
-- GitHub Actions
+- ~~GitHub Actions~~
 
 ## Known Issues
 - About a billion edge-cases in terms of what `serverinfo.json` returns
