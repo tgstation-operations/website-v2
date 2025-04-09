@@ -24,11 +24,16 @@
                 {{ render_menu(nav) }}
             </nav>
         </header>
+        <i class="fa fas fa-pause" id="animationControl"></i>
         <main>
             <section>
                 <h1 class="section-title">{{ title }}</h1>
                 <article class="pb-0">
                     {% if date %}
+                        <a href="/newsletters">
+                            <i class="fa-solid fa-angles-left"></i>
+                            All Newsletters
+                        </a>
                         <span class="date">{{ date|date }}</span>
                     {% endif %}
                     {{ content | safe }}
@@ -38,7 +43,8 @@
         <footer>
             /tg/station 13 - v.{{ changelog[0].version }} -
             <a href="https://github.com/tgstation-operations/website-v2" target="_blank">Source Code</a><br> Site design based off of work done by
-            <a href="https://mozi-h.de/" target="_blank">mozi_h</a>
+            <a href="https://mozi-h.de/" target="_blank">mozi_h</a><br>
+            <a href="#" class="clearSettings">Clear Settings</a>
         </footer>
         <div id="space-bg-container" class="">
             <div class="bg-space space-1"></div>
@@ -49,5 +55,7 @@
             <div class="bg-space space-2-yellow"></div>
             <div class="bg-space space-3"></div>
         </div>
+        <script defer src="{% webpack 'js/dismiss.js' %}"></script>
+        <script defer src="{% webpack 'js/pause.js' %}"></script>
     </body>
 </html>
