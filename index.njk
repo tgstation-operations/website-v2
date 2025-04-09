@@ -30,7 +30,7 @@
       <section id="alerts" class="invisible mb-4">
         {% for type, messages in alerts %}
           {% for message in messages %}
-            <div class="flash {{ type }} {% if message.dismissible %}dismissible{% endif %}">
+            <div class="flash {{ type }} {% if message.dismissible %}dismissible{% endif %}" id="{{ message.message|slug }}">
               {{ message.message }}
             </div>
           {% endfor %}
