@@ -22,7 +22,9 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addGlobalData("changelog", changelogData);
 
   eleventyConfig.addNunjucksAsyncShortcode("webpack", shortcodes.webpack);
-
+  eleventyConfig.addShortcode("currentBuildDate", () => {
+    return new Date().toISOString();
+  });
   eleventyConfig.addWatchTarget(
     path.join(__dirname, "_site/assets/manifest.yaml")
   );

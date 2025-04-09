@@ -1,3 +1,11 @@
+- version: 1.0.6
+  date: 2025-04-09
+  changes:
+      added: [The ability to hide sections and pause space]
+- version: 1.0.5
+  date: 2025-04-08
+  changes:
+      added: [Newsletters!]
 - version: 1.0.4
   date: 2025-04-07
   changes:
