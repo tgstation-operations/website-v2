@@ -8,8 +8,29 @@
 - title: "Forums"
   href: "https://forums.tgstation13.org"
 
+- title: "Discord"
+  href: "https://forums.tgstation13.org/viewforum.php?f=60&sid=3bcc19ce354458bfc10a47c30650b874"
+
 - title: "Wiki"
   href: "https://wiki.tgstation13.org"
 
+- title: "Dev"
+  links:
+      - title: "/tg/station 13 GitHub"
+        href: "https://github.com/tgstation/tgstation"
+      - title: "/tg/station 13 Infrastructure"
+        href: "https://github.com/tgstation-operations"
+
 - title: "Newsletter"
   href: "/newsletters"
+
+- title: "Other Stations"
+  links:
+      - title: "Paradise Station"
+        href: "https://www.paradisestation.org/"
+      - title: "Colonial Marines"
+        href: "https://www.colonial-marines.com/"
+      - title: "Bay Station"
+        href: "https://baystation12.net/"
+      - title: "Yog Station"
+        href: "https://www.yogstation.net/"
