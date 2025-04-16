@@ -45,6 +45,7 @@ function updateBanners(server) {
     banner.querySelector(`#${server.identifier}-hub`),
     banner.querySelector(`#${server.identifier}-bunker`)
   );
+  setBannerToErrorMode(banner, "", true);
   return getPlayerCount(server);
 }
 
