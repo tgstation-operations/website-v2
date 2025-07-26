@@ -15,7 +15,7 @@
 
 - version: "/tg/Station 13"
   public_address: "eventhall.tgstation13.org:7777"
-  identifier: "eventhallus"
+  identifier: "eventhall"
   name: "Event Hall US"
 
 - version: "TGMC"
