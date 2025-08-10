@@ -1,5 +1,6 @@
 info:
-
+    - message: "/tg/station 13 is now crowdfunded (again)! <a href='#'>Read more!</a>"
+      dismissible: true
 warning:
 
 danger:

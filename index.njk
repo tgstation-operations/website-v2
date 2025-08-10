@@ -33,7 +33,7 @@
         {% for type, messages in alerts %}
           {% for message in messages %}
             <div class="flash {{ type }}" id="{{ message.message|slug }}">
-              <span>{{ message.message }}</span>
+              <span>{{ message.message | safe }}</span>
               {% if message.dismissible %}
                 <i class="fa fa-times dismiss" title="Dismiss this alert"></i>
               {% endif %}

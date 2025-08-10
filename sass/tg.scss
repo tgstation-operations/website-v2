@@ -281,6 +281,9 @@ section:not(.invisible) .dismiss {
   background: var(--bg-primary);
   color: var(--primary);
   border-color: var(--primary);
+  a{
+    color: var(--link-color);
+  }
 }
 
 .flash.warning {
