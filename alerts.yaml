@@ -1,6 +1,6 @@
 info:
-    - message: "/tg/station 13 is now crowdfunded (again)! <a href='opencollective.com/tgstation13' target='_blank' rel='noopener noreferrer'>Read more!</a>"
-      dismissible: true
+  - message: "/tg/station 13 is now crowdfunded (again)! <a href='https://opencollective.com/tgstation13' target='_blank' rel='noopener noreferrer'>Read more!</a>"
+    dismissible: true
 warning:
 
 danger:
