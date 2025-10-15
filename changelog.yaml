@@ -1,40 +1,47 @@
+- version: 1.0.10
+  date: 2025-10-15
+  changes:
+    fixed:
+      - Newsletter dates not showing correctly
+      - Submenus showing home links
+      - Navigation menu not centered
 - version: 1.0.9
   date: 2025-04-15
   changes:
-      fixed: [Bug with game banners never clearing their error state]
+    fixed: [Bug with game banners never clearing their error state]
 - version: 1.0.8
   date: 2025-04-10
   changes:
-      added: [Added links to other stations]
+    added: [Added links to other stations]
 - version: 1.0.7
   date: 2025-04-09
   changes:
-      changed: [Production assets no longer have content hashes]
+    changed: [Production assets no longer have content hashes]
 - version: 1.0.6
   date: 2025-04-09
   changes:
-      added: [The ability to hide sections and pause space]
+    added: [The ability to hide sections and pause space]
 - version: 1.0.5
   date: 2025-04-08
   changes:
-      added: [Newsletters!]
+    added: [Newsletters!]
 - version: 1.0.4
   date: 2025-04-07
   changes:
-      added: [We narrow now]
+    added: [We narrow now]
 - version: 1.0.3
   date: 2025-04-05
   changes:
-      added: [Banners are back]
+    added: [Banners are back]
 - version: 1.0.2
   date: 2025-04-05
   changes:
-      added: [mozi_h acknowledgement]
+    added: [mozi_h acknowledgement]
 - version: 1.0.1
   date: 2025-04-05
   changes:
-      added: [Version string added to footer, Link to github]
+    added: [Version string added to footer, Link to github]
 - version: 1.0.0
   date: 2025-04-05
   changes:
-      added: [This changelog]
+    added: [This changelog]
