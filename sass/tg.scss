@@ -97,6 +97,11 @@ footer {
   text-align: center;
 }
 
+nav menu {
+  display: flex;
+  justify-content: space-around;
+}
+
 menu > li {
   text-align: center;
 }
@@ -281,7 +286,7 @@ section:not(.invisible) .dismiss {
   background: var(--bg-primary);
   color: var(--primary);
   border-color: var(--primary);
-  a{
+  a {
     color: var(--link-color);
   }
 }
