@@ -9,11 +9,13 @@
     </head>
     <body data-color-scheme="dark">
         <header>
-            {% macro render_menu(items) %}
+            {% macro render_menu(items, is_root = false) %}
                 <menu>
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
+                    {% if is_root %}
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                    {% endif %}
                     {% for item in items %}
                         <li>
                             <a href="{{ item.href if item.href else '#' }}">{{ item.title }}</a>
@@ -25,7 +27,7 @@
                 </menu>
             {% endmacro %}
             <nav class="flex space-around">
-                {{ render_menu(nav) }}
+                {{ render_menu(nav, true) }}
             </nav>
         </header>
         <i class="fa fas fa-pause" id="animationControl"></i>
