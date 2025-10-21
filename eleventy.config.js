@@ -39,8 +39,10 @@ module.exports = async function (eleventyConfig) {
     });
   });
   eleventyConfig.addGlobalData("banners", banners);
-  eleventyConfig.addFilter("date", (dateObj) => {
-    return DateTime.fromObject(dateObj, { zone: "utc" }).toFormat("MMMM yyyy");
+  eleventyConfig.addFilter("date", (dateObj, format, zone) => {
+    return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(
+      format || "LLLL yyyy"
+    );
   });
   return {
     dir: {
