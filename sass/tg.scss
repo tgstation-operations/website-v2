@@ -297,6 +297,10 @@ section:not(.invisible) .dismiss {
   border-color: var(--severe);
 }
 
+.flash.danger a {
+  color: var(--primary);
+}
+
 .flash .dismiss,
 section .dismiss {
   font-size: 1.5rem;
