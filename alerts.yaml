@@ -1,6 +1,7 @@
 info:
-  - message: "The Toolbox Tournament VII for charity is coming up! <a href='https://forums.tgstation13.org/viewtopic.php?t=39340' target='_blank'>Read More</a>"
-    dismissible: true
+
 warning:
 
 danger:
+  - message: "/tg/station 13 will be offline, November 15th, 2025 for a hardware move. <a href='https://forums.tgstation13.org/viewtopic.php?t=39356'>Read More</a>"
+    dismissible: false
