@@ -45,7 +45,6 @@ function updateBanners(server) {
     banner.querySelector(`#${server.identifier}-hub`),
     banner.querySelector(`#${server.identifier}-bunker`)
   );
-  setBannerToErrorMode(banner, "", true);
   return getPlayerCount(server);
 }
 
@@ -164,13 +163,11 @@ function pad(n, width, z) {
   return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 }
 
-function setBannerToErrorMode(banner, errorText, undo = false) {
-  if (!undo) {
-    banner.classList.add("error");
-    banner.classList.remove("underway", "lobby", "end");
-    banner.querySelector(".version").textContent = errorText;
-  } else {
-  }
+function setBannerToErrorMode(banner, errorText) {
+  banner.classList.add("error");
+  banner.classList.remove("underway", "lobby", "end");
+  banner.querySelector(".version").textContent = errorText;
+
 }
 
 function getPlayerCount(server) {
