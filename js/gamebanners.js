@@ -128,6 +128,7 @@ function shuttleTime(shuttlemode, shuttletime) {
 
 function state2class(state, target) {
   target.classList.remove("loading");
+  target.classList.remove("error");
   switch (Number(state)) {
     case 2:
     case 3:
