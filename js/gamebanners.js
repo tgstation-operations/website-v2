@@ -19,6 +19,7 @@ async function getData() {
 
 function updateBanners(server) {
   const banner = document.getElementById(`${server.identifier}`);
+  if (!banner) return 0;
   let errortext = "Connection Error!";
   if (!server.hasOwnProperty("data") || null === server.data) {
     setBannerToErrorMode(banner, errortext);
@@ -49,10 +50,13 @@ function updateBanners(server) {
 }
 
 function setRevision(revision, banner) {
-  banner.querySelector(".revision").textContent = revision.substr(0, 7);
+  const el = banner.querySelector(".revision");
+  if (el && revision) el.textContent = revision.substr(0, 7);
 }
 
 function setVersion(data, banner) {
+  const el = banner.querySelector(".version");
+  if (!el) return;
   let modestr = "Playing /tg/Station 13";
   if (data.hasOwnProperty("version")) modestr = "Playing " + data.version;
   if (data.hasOwnProperty("custom_event")) {
@@ -60,14 +64,17 @@ function setVersion(data, banner) {
   } else if (data.hasOwnProperty("mode")) {
     modestr += ' mode "' + data.mode + '"';
   }
-  banner.querySelector(".version").textContent = modestr;
+  el.textContent = modestr;
 }
 
 function setMap(map, banner) {
-  banner.querySelector(".map").textContent = `The map is: ${map}`;
+  const el = banner.querySelector(".map");
+  if (el) el.textContent = `The map is: ${map}`;
 }
 
 function setTtl(data, banner) {
+  const el = banner.querySelector(".status");
+  if (!el) return;
   let ttl = "";
   ttl += data.players;
   let popcap = popcapstring(data);
@@ -77,7 +84,7 @@ function setTtl(data, banner) {
   if (data.hasOwnProperty("shuttle_mode") && Number(data.shuttle_timer))
     ttl += " " + shuttleTime(data.shuttle_mode, Number(data.shuttle_timer));
 
-  banner.querySelector(".status").textContent = ttl;
+  el.textContent = ttl;
 }
 
 function popcapstring(serverdata) {
@@ -146,15 +153,19 @@ function state2class(state, target) {
 }
 
 function setIcons(data, hub, bunker) {
-  if (data.hasOwnProperty("hub") && true === data.hub) {
-    hub.classList.remove("hidden");
-  } else {
-    hub.classList.add("hidden");
+  if (hub) {
+    if (data.hasOwnProperty("hub") && true === data.hub) {
+      hub.classList.remove("hidden");
+    } else {
+      hub.classList.add("hidden");
+    }
   }
-  if (data.hasOwnProperty("bunkered") && true === data.bunkered) {
-    bunker.classList.remove("hidden");
-  } else {
-    bunker.classList.add("hidden");
+  if (bunker) {
+    if (data.hasOwnProperty("bunkered") && true === data.bunkered) {
+      bunker.classList.remove("hidden");
+    } else {
+      bunker.classList.add("hidden");
+    }
   }
 }
 
@@ -165,6 +176,7 @@ function pad(n, width, z) {
 }
 
 function setBannerToErrorMode(banner, errorText) {
+  if (!banner) return;
   banner.classList.add("error");
   banner.classList.remove("underway", "lobby", "end");
   banner.querySelector(".version").textContent = errorText;
@@ -180,6 +192,7 @@ function getPlayerCount(server) {
 
 function updatePlayerCount(players) {
   const el = document.querySelector(".playercount");
+  if (!el) return;
   el.textContent = `${players} players online`;
   el.classList.remove("hidden");
 }
