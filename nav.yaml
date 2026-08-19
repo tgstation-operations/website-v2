@@ -40,3 +40,14 @@
 #       href: "https://baystation.xyz/"
 #     - title: "Yog Station"
 #       href: "https://www.yogstation.net/"
+
+- title: "Social Media"
+  links:
+    - title: "YouTube"
+      href: "https://www.youtube.com/@TGStation13"
+    - title: "Reddit"
+      href: "https://www.reddit.com/user/TGstation13/"
+    - title: "Bluesky"
+      href: "https://bsky.app/profile/tgstation13.org"
+    - title: "Twitter"
+      href: "https://twitter.com/TGStation13"      
